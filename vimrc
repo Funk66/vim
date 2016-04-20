@@ -8,6 +8,8 @@ Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/syntastic', {'for': ['python', 'javascript']}
 Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-surround'
+Plug 'mkarmona/colorsbox'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -59,7 +61,7 @@ set t_Co=256
 
 set background=dark
 
-colorscheme colorsbox
+colorscheme colorsbox-stnight
 
 set encoding=utf8 " Set utf8 as standard encoding and en_US as the standard language
 
