@@ -10,6 +10,9 @@ Plug 'scrooloose/syntastic', {'for': ['python', 'javascript']}
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'mkarmona/colorsbox'
+Plug 'scrooloose/nerdtree'
+Plug 'chrisbra/csv.vim', {'for': ['csv']}
+Plug 'digitaltoad/vim-pug', {'for': ['pug']}
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
