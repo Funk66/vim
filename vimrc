@@ -137,3 +137,9 @@ let g:syntastic_python_checkers=['pyflakes']
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1  " Buffer bar
 let g:airline#extensions#tabline#fnamemod = ':t'  " Show filename in buffer bar
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => CtrlP
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git' 
