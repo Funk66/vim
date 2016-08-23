@@ -6,13 +6,20 @@ call plug#begin()
 Plug 'vim-airline/vim-airline'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/syntastic', {'for': ['python', 'javascript']}
+Plug 'scrooloose/syntastic', {'for': ['python', 'javascript', 'html']}
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
+Plug 'mattn/emmet-vim' ", {'for': ['html', 'ejs', 'handlebars', 'php']}
 Plug 'mkarmona/colorsbox'
-Plug 'scrooloose/nerdtree'
 Plug 'chrisbra/csv.vim', {'for': ['csv']}
 Plug 'digitaltoad/vim-pug', {'for': ['pug']}
+Plug 'scrooloose/nerdtree'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'airblade/vim-gitgutter'
+Plug 'pangloss/vim-javascript', {'for': ['js']}
+Plug 'jiangmiao/auto-pairs'
+Plug 'ntpeters/vim-better-whitespace'
+"Plug 'Valloric/YouCompleteMe'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -21,6 +28,7 @@ call plug#end()
 
 set nocompatible
 let mapleader=","
+" set foldmethod=indent
 
 set history=50
 
@@ -53,13 +61,14 @@ set nu  " Set Relative numbering
 
 set laststatus=2
 set noshowmode
+set cursorline
 
 " set t_Co=256
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
-syntax enable 
+syntax enable
 set t_Co=256
 
 set background=dark
@@ -78,12 +87,14 @@ set nobackup
 set nowb
 set noswapfile
 
+set hidden
+set confirm
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set expandtab " Use spaces instead of tabs
-set smarttab 
+set smarttab
 
 set shiftwidth=2
 set tabstop=2
@@ -120,7 +131,7 @@ augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
@@ -129,6 +140,8 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_python_checkers=['pyflakes']
+let g:syntastic_javascript_checkers=['jshint']
+let g:syntastic_html_checkers=['jshint']
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Airline
@@ -139,7 +152,17 @@ let g:airline#extensions#tabline#enabled = 1  " Buffer bar
 let g:airline#extensions#tabline#fnamemod = ':t'  " Show filename in buffer bar
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => CSV
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+aug CSV_Editing
+    au!
+    au BufRead,BufWritePost *.csv :%ArrangeColumn
+    au BufWritePre *.csv :%UnArrangeColumn
+aug end
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => CtrlP
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git' 
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
