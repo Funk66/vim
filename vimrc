@@ -19,6 +19,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'pangloss/vim-javascript', {'for': ['js']}
 Plug 'jiangmiao/auto-pairs'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'leafgarland/typescript-vim'
 "Plug 'Valloric/YouCompleteMe'
 call plug#end()
 
@@ -31,6 +32,8 @@ let mapleader=","
 " set foldmethod=indent
 
 set history=50
+
+runtime macros/matchit.vim
 
 filetype plugin on
 filetype indent on
