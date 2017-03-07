@@ -170,3 +170,11 @@ aug end
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => OmniComplete
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+ " Close help window automatically
+ autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
