@@ -29,7 +29,8 @@ call plug#end()
 
 set nocompatible
 let mapleader=","
-" set foldmethod=indent
+set foldmethod=indent
+set foldlevelstart=99
 
 set history=50
 
