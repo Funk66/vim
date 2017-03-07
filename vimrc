@@ -9,7 +9,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/syntastic', {'for': ['python', 'javascript', 'html']}
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
-Plug 'mattn/emmet-vim' ", {'for': ['html', 'ejs', 'handlebars', 'php']}
 Plug 'mkarmona/colorsbox'
 Plug 'chrisbra/csv.vim', {'for': ['csv']}
 Plug 'digitaltoad/vim-pug', {'for': ['pug']}
