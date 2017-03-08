@@ -10,15 +10,15 @@ Plug 'scrooloose/syntastic', {'for': ['python', 'javascript', 'html']}
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'mkarmona/colorsbox'
-Plug 'chrisbra/csv.vim', {'for': ['csv']}
-Plug 'digitaltoad/vim-pug', {'for': ['pug']}
 Plug 'scrooloose/nerdtree'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'airblade/vim-gitgutter'
+Plug 'chrisbra/csv.vim', {'for': ['csv']}
+Plug 'digitaltoad/vim-pug', {'for': ['pug']}
 Plug 'pangloss/vim-javascript', {'for': ['js']}
+Plug 'leafgarland/typescript-vim', {'for': ['ts']}
 Plug 'jiangmiao/auto-pairs'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'leafgarland/typescript-vim'
 "Plug 'Valloric/YouCompleteMe'
 call plug#end()
 
