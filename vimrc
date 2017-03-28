@@ -10,9 +10,9 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'mkarmona/colorsbox'
 Plug 'scrooloose/nerdtree'
 Plug 'airblade/vim-gitgutter'
+Plug 'python-mode/python-mode'
 Plug 'chrisbra/csv.vim', {'for': ['csv']}
 Plug 'digitaltoad/vim-pug', {'for': ['pug']}
-Plug 'python-mode/python-mode', {'for': ['py']}
 Plug 'pangloss/vim-javascript', {'for': ['js']}
 Plug 'leafgarland/typescript-vim', {'for': ['ts']}
 Plug 'jiangmiao/auto-pairs'
@@ -22,40 +22,29 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set nocompatible
-set wildmenu
 let mapleader=","
 set foldmethod=indent
 set foldlevelstart=99
-autocmd FileType python setlocal foldmethod=syntax
+autocmd FileType python setlocal foldmethod=expr
 
 runtime macros/matchit.vim
 
 filetype plugin on
 filetype indent on
 
-set autoread
 set ruler
-set backspace=eol,start,indent
 
 " Searching
 set ignorecase
 set smartcase
-set hlsearch
-set incsearch
 
 set lazyredraw  " Don't redraw while executing macros (good performance config)
 set showmatch  " Show matching brackets when text indicator is over them
 set mat=2 " How many tenths of a second to blink when matching brackets
 
-" No annoying sound on errors
-set noerrorbells
-set novisualbell
-set t_vb=
 set tm=500
 
 set nu
-set laststatus=2
 set noshowmode
 set cursorline
 set history=50
@@ -67,7 +56,6 @@ syntax enable
 set t_Co=256
 set background=dark
 colorscheme colorsbox-stnight
-set encoding=utf8
 set ffs=unix,dos,mac " Use Unix as the standard file type
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -83,7 +71,6 @@ set confirm
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set expandtab
-set smarttab
 set shiftwidth=2
 set tabstop=2
 set lbr " Linebreak on 500 characters
@@ -150,3 +137,8 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
  " Close help window automatically
  autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
  autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Python mode
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:pymode_python = 'python3'
