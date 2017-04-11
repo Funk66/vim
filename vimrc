@@ -58,6 +58,10 @@ set background=dark
 colorscheme colorsbox-stnight
 set ffs=unix,dos,mac " Use Unix as the standard file type
 
+" Thin window decorators
+set fillchars+=vert:│
+hi VertSplit ctermbg=NONE guibg=NONE
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
