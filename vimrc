@@ -15,6 +15,7 @@ Plug 'chrisbra/csv.vim', {'for': ['csv']}
 Plug 'digitaltoad/vim-pug', {'for': ['pug']}
 Plug 'pangloss/vim-javascript', {'for': ['js']}
 Plug 'leafgarland/typescript-vim', {'for': ['ts']}
+Plug 'kchmck/vim-coffee-script', {'for': ['coffee']}
 Plug 'jiangmiao/auto-pairs'
 Plug 'ntpeters/vim-better-whitespace'
 call plug#end()
@@ -57,8 +58,6 @@ set t_Co=256
 set background=dark
 colorscheme colorsbox-stnight
 set ffs=unix,dos,mac " Use Unix as the standard file type
-
-" Thin window decorators
 set fillchars+=vert:│
 hi VertSplit ctermbg=NONE guibg=NONE
 
