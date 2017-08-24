@@ -11,13 +11,19 @@ Plug 'mkarmona/colorsbox'
 Plug 'scrooloose/nerdtree'
 Plug 'airblade/vim-gitgutter'
 Plug 'python-mode/python-mode'
-Plug 'chrisbra/csv.vim', {'for': ['csv']}
-Plug 'digitaltoad/vim-pug', {'for': ['pug']}
-Plug 'pangloss/vim-javascript', {'for': ['js']}
-Plug 'leafgarland/typescript-vim', {'for': ['ts']}
-Plug 'kchmck/vim-coffee-script', {'for': ['coffee']}
+Plug 'chrisbra/csv.vim', {'for': 'csv'}
+Plug 'wavded/vim-stylus', {'for': 'stylus'}
+Plug 'digitaltoad/vim-pug', {'for': 'pug'}
+Plug 'pangloss/vim-javascript', {'for': 'js'}
+Plug 'leafgarland/typescript-vim', {'for': 'ts'}
+Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'wakatime/vim-wakatime'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -49,6 +55,7 @@ set nu
 set noshowmode
 set cursorline
 set history=50
+set mouse=a
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
@@ -110,7 +117,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
-let g:syntastic_javascript_checkers=['jshint']
+let g:syntastic_javascript_checkers=['eslint']
 let g:syntastic_html_checkers=['jshint']
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -132,7 +139,7 @@ aug end
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => CtrlP
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|.git\|docs\|lib'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => OmniComplete
@@ -145,3 +152,11 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 " => Python mode
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:pymode_python = 'python3'
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Vim devicons
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set encoding=utf8
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11
+let g:airline_powerline_fonts = 11
