@@ -3,7 +3,6 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin()
 Plug 'vim-airline/vim-airline'
-Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/syntastic', {'for': ['javascript', 'html']}
 Plug 'scrooloose/nerdcommenter'
@@ -15,7 +14,7 @@ Plug 'chrisbra/csv.vim', {'for': 'csv'}
 Plug 'wavded/vim-stylus', {'for': 'stylus'}
 Plug 'digitaltoad/vim-pug', {'for': 'pug'}
 Plug 'pangloss/vim-javascript', {'for': 'js'}
-Plug 'leafgarland/typescript-vim', {'for': 'ts'}
+"Plug 'leafgarland/typescript-vim', {'for': 'ts'}
 Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'ntpeters/vim-better-whitespace'
@@ -24,6 +23,9 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'wakatime/vim-wakatime'
+Plug 'majutsushi/tagbar'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -137,11 +139,6 @@ aug CSV_Editing
 aug end
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => CtrlP
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|.git\|docs\|lib'
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => OmniComplete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
  " Close help window automatically
@@ -153,10 +150,19 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|.git\|docs\|lib'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:pymode_python = 'python3'
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vim devicons
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set encoding=utf8
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11
 let g:airline_powerline_fonts = 11
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Tagbar
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:tagbar_sort = 0
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => FZF + ripgrep
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
