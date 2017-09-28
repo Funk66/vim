@@ -4,12 +4,11 @@
 call plug#begin()
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/syntastic', {'for': ['javascript', 'html']}
+Plug 'scrooloose/syntastic', {'for': ['python', 'javascript', 'html']}
 Plug 'scrooloose/nerdcommenter'
 Plug 'mkarmona/colorsbox'
 Plug 'scrooloose/nerdtree'
 Plug 'airblade/vim-gitgutter'
-Plug 'python-mode/python-mode'
 Plug 'chrisbra/csv.vim', {'for': 'csv'}
 Plug 'wavded/vim-stylus', {'for': 'stylus'}
 Plug 'digitaltoad/vim-pug', {'for': 'pug'}
@@ -26,6 +25,9 @@ Plug 'wakatime/vim-wakatime'
 Plug 'majutsushi/tagbar'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+"Plug 'SirVer/ultisnips'
+"Plug 'honza/vim-snippets'
+Plug 'kshenoy/vim-signature'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -34,7 +36,6 @@ call plug#end()
 let mapleader=","
 set foldmethod=indent
 set foldlevelstart=99
-autocmd FileType python setlocal foldmethod=expr
 
 runtime macros/matchit.vim
 
@@ -47,13 +48,11 @@ set ruler
 set ignorecase
 set smartcase
 
-set lazyredraw  " Don't redraw while executing macros (good performance config)
-set showmatch  " Show matching brackets when text indicator is over them
-set mat=2 " How many tenths of a second to blink when matching brackets
+set lazyredraw
+set showmatch
+set matchtime=2
 
-set tm=500
-
-set nu
+set number
 set noshowmode
 set cursorline
 set history=50
@@ -74,7 +73,7 @@ hi VertSplit ctermbg=NONE guibg=NONE
 " => Files, backups and undo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nobackup
-set nowb
+set nowritebackup
 set noswapfile
 set hidden
 set confirm
@@ -85,11 +84,8 @@ set confirm
 set expandtab
 set shiftwidth=2
 set tabstop=2
-set lbr " Linebreak on 500 characters
-set tw=500
-
-set ai " Auto indent
-set si " Smart indent
+set autoindent
+set smartindent
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Restore last session
@@ -111,23 +107,31 @@ augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Syntastic
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set statusline+=%#warningmsg#
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
-
-let g:syntastic_javascript_checkers=['eslint']
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_error_symbol = "✘"
+let g:syntastic_warning_symbol = "⚠"
+let g:syntastic_style_error_symbol = "⎢"
+let g:syntastic_style_warning_symbol = "⎢"
 let g:syntastic_html_checkers=['jshint']
+let g:syntastic_python_checkers=['flake8']
+let g:syntastic_javascript_checkers=['standard']
+let g:syntastic_coffee_checkers=['coffeelint']
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Syntastic
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:gitgutter_sign_added = '⎢'
+let g:gitgutter_sign_modified = '⎢'
+let g:gitgutter_sign_removed = '＿'
+let g:gitgutter_sign_modified_removed = '⎣'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1  " Buffer bar
-let g:airline#extensions#tabline#fnamemod = ':t'  " Show filename in buffer bar
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => CSV
@@ -141,21 +145,15 @@ aug end
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => OmniComplete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
- " Close help window automatically
- autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
- autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Python mode
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:pymode_python = 'python3'
+" Close help window automatically
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vim devicons
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set encoding=utf8
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11
-let g:airline_powerline_fonts = 11
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Tagbar
@@ -166,3 +164,4 @@ let g:tagbar_sort = 0
 " => FZF + ripgrep
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+nnoremap <c-p> :FZF<cr>
