@@ -12,8 +12,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'chrisbra/csv.vim', {'for': 'csv'}
 Plug 'wavded/vim-stylus', {'for': 'stylus'}
 Plug 'digitaltoad/vim-pug', {'for': 'pug'}
-Plug 'pangloss/vim-javascript', {'for': 'js'}
-"Plug 'leafgarland/typescript-vim', {'for': 'ts'}
 Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'ntpeters/vim-better-whitespace'
@@ -25,38 +23,33 @@ Plug 'wakatime/vim-wakatime'
 Plug 'majutsushi/tagbar'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-"Plug 'SirVer/ultisnips'
-"Plug 'honza/vim-snippets'
 Plug 'kshenoy/vim-signature'
+Plug 'davidhalter/jedi-vim', {'for': ['python']}
+Plug 'plasticboy/vim-markdown', {'for': ['markdown']}
+Plug 'tmhedberg/SimpylFold', {'for': ['python']}
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let mapleader=","
-set foldmethod=indent
-set foldlevelstart=99
-
-runtime macros/matchit.vim
-
 filetype plugin on
 filetype indent on
 
+let mapleader=","
+set foldmethod=indent
+set foldlevelstart=99
 set ruler
-
-" Searching
 set ignorecase
 set smartcase
-
 set lazyredraw
 set showmatch
-set matchtime=2
-
 set number
 set noshowmode
 set cursorline
-set history=50
 set mouse=a
+set history=50
+set matchtime=2
+set conceallevel=2
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
@@ -65,8 +58,7 @@ syntax enable
 set t_Co=256
 set background=dark
 colorscheme colorsbox-stnight
-set ffs=unix,dos,mac " Use Unix as the standard file type
-set fillchars+=vert:│
+set fillchars=vert:│,fold:─
 hi VertSplit ctermbg=NONE guibg=NONE
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -105,14 +97,29 @@ augroup resCur
 augroup END
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Folding
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! NeatFoldText()
+  let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
+  let lines_count = v:foldend - v:foldstart + 1
+  let lines_count_text = '┤ ' . printf("%10s", lines_count . ' lines') . ' ├'
+  let foldchar = matchstr(&fillchars, 'fold:\zs.')
+  let foldtextstart = strpart('▻' . repeat(' ', v:foldlevel) . line, 0, (winwidth(0)*2)/3)
+  let foldtextend = lines_count_text . repeat(foldchar, 8)
+  let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
+  return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
+endfunction
+set foldtext=NeatFoldText()
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Syntastic
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:syntastic_check_on_wq = 0
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_error_symbol = "✘"
 let g:syntastic_warning_symbol = "⚠"
-let g:syntastic_style_error_symbol = "⎢"
-let g:syntastic_style_warning_symbol = "⎢"
+let g:syntastic_style_error_symbol = "》"
+let g:syntastic_style_warning_symbol = "〉"
 let g:syntastic_html_checkers=['jshint']
 let g:syntastic_python_checkers=['flake8']
 let g:syntastic_javascript_checkers=['standard']
@@ -152,7 +159,6 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vim devicons
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set encoding=utf8
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
