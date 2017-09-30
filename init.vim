@@ -24,9 +24,10 @@ Plug 'majutsushi/tagbar'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'kshenoy/vim-signature'
-Plug 'davidhalter/jedi-vim', {'for': ['python']}
 Plug 'plasticboy/vim-markdown', {'for': ['markdown']}
 Plug 'tmhedberg/SimpylFold', {'for': ['python']}
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-jedi', {'for': ['python']}
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -171,3 +172,8 @@ let g:tagbar_sort = 0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 nnoremap <c-p> :FZF<cr>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Deoplete
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:deoplete#enable_at_startup = 1
