@@ -132,7 +132,7 @@ let g:syntastic_javascript_checkers=['standard']
 let g:syntastic_coffee_checkers=['coffeelint']
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Syntastic
+" => Gitgutter
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:gitgutter_sign_added = '⎢'
 let g:gitgutter_sign_modified = '⎢'
@@ -182,3 +182,8 @@ nnoremap <c-p> :FZF<cr>
 " => Deoplete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:deoplete#enable_at_startup = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => NERDTree
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let NERDTreeIgnore=['\.pyc$']
