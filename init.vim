@@ -66,6 +66,7 @@ set background=dark
 colorscheme colorsbox-stnight
 set fillchars=vert:│,fold:─
 hi VertSplit ctermbg=NONE guibg=NONE
+au BufNewFile,BufRead Jenkinsfile setf groovy
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
