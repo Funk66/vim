@@ -23,16 +23,17 @@ Plug 'wakatime/vim-wakatime'
 Plug 'majutsushi/tagbar'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'kshenoy/vim-signature'
-Plug 'plasticboy/vim-markdown', {'for': ['markdown']}
-Plug 'tmhedberg/SimpylFold', {'for': ['python']}
+"Plug 'kshenoy/vim-signature'
+Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
+Plug 'tmhedberg/SimpylFold', {'for': 'python'}
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi', {'for': ['python']}
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'ternjs/tern_for_vim', { 'for': ['javascript'] }
-Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript'] }
-Plug 'othree/jspc.vim', { 'for': ['javascript'] }
+Plug 'zchee/deoplete-jedi', {'for': 'python'}
+Plug 'ternjs/tern_for_vim', { 'for': 'javascript' }
+Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
+Plug 'othree/jspc.vim', { 'for': 'javascript' }
+Plug 'wellle/tmux-complete.vim'
+Plug 'fszymanski/deoplete-emoji'
+Plug 'leafgarland/typescript-vim'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -128,8 +129,8 @@ let g:syntastic_warning_symbol = "⚠"
 let g:syntastic_style_error_symbol = "》"
 let g:syntastic_style_warning_symbol = "〉"
 let g:syntastic_html_checkers=['jshint']
-let g:syntastic_python_checkers=['flake8']
-let g:syntastic_javascript_checkers=['standard']
+let g:syntastic_python_checkers=['flake8', 'mypy']
+let g:syntastic_javascript_checkers=['eslint']
 let g:syntastic_coffee_checkers=['coffeelint']
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
