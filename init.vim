@@ -12,7 +12,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'chrisbra/csv.vim', {'for': 'csv'}
 Plug 'wavded/vim-stylus', {'for': 'stylus'}
 Plug 'digitaltoad/vim-pug', {'for': 'pug'}
-Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'nathanaelkane/vim-indent-guides'
@@ -22,7 +21,6 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'majutsushi/tagbar'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-"Plug 'kshenoy/vim-signature'
 Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 Plug 'tmhedberg/SimpylFold', {'for': 'python'}
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -31,7 +29,6 @@ Plug 'ternjs/tern_for_vim', { 'for': 'javascript' }
 Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
 Plug 'othree/jspc.vim', { 'for': 'javascript' }
 Plug 'wellle/tmux-complete.vim'
-Plug 'fszymanski/deoplete-emoji'
 Plug 'leafgarland/typescript-vim'
 call plug#end()
 
