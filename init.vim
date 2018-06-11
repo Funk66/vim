@@ -4,7 +4,6 @@
 call plug#begin()
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/syntastic', {'for': ['python', 'javascript', 'html']}
 Plug 'scrooloose/nerdcommenter'
 Plug 'mkarmona/colorsbox'
 Plug 'scrooloose/nerdtree'
@@ -30,6 +29,7 @@ Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
 Plug 'othree/jspc.vim', { 'for': 'javascript' }
 Plug 'wellle/tmux-complete.vim'
 Plug 'leafgarland/typescript-vim'
+Plug 'w0rp/ale'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -99,18 +99,17 @@ endfunction
 set foldtext=NeatFoldText()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Syntastic
+" => Ale
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:syntastic_check_on_wq = 0
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_error_symbol = "✘"
-let g:syntastic_warning_symbol = "⚠"
-let g:syntastic_style_error_symbol = "》"
-let g:syntastic_style_warning_symbol = "〉"
-let g:syntastic_html_checkers=['jshint']
-let g:syntastic_python_checkers=['flake8', 'mypy']
-let g:syntastic_javascript_checkers=['eslint']
-let g:syntastic_coffee_checkers=['coffeelint']
+let g:ale_sign_error = "✘"
+let g:ale_sign_warning = "⚠"
+let g:ale_sign_style_error = "》"
+let g:ale_sign_style_warning = "〉"
+let g:ale_lint_delay = 5000
+let g:ale_linters = {'python': ['flake8', 'mypy'], 'javascript': ['eslint']}
+
+highlight ALEErrorSign ctermbg=237 ctermfg=red
+highlight ALEWarningSign ctermbg=237 ctermfg=yellow
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Gitgutter
@@ -128,6 +127,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 0
 let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#ale#enabled = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => CSV
