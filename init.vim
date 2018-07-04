@@ -24,6 +24,7 @@ Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 Plug 'tmhedberg/SimpylFold', {'for': 'python'}
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi', {'for': 'python'}
+Plug 'davidhalter/jedi-vim', {'for': 'python'}
 Plug 'ternjs/tern_for_vim', { 'for': 'javascript' }
 Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
 Plug 'othree/jspc.vim', { 'for': 'javascript' }
