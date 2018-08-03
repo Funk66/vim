@@ -18,19 +18,21 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'majutsushi/tagbar'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
 Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 Plug 'tmhedberg/SimpylFold', {'for': 'python'}
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 Plug 'zchee/deoplete-jedi', {'for': 'python'}
 Plug 'davidhalter/jedi-vim', {'for': 'python'}
-Plug 'ternjs/tern_for_vim', { 'for': 'javascript' }
-Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
-Plug 'othree/jspc.vim', { 'for': 'javascript' }
+Plug 'ternjs/tern_for_vim', {'for': 'javascript'}
+Plug 'carlitux/deoplete-ternjs', {'for': 'javascript'}
+Plug 'othree/jspc.vim', {'for': 'javascript'}
 Plug 'wellle/tmux-complete.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'w0rp/ale'
+Plug 'Shougo/vimproc', {'do': 'make'}
+Plug 'Quramy/tsuquyomi', {'for': 'typescript'}
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -107,7 +109,7 @@ let g:ale_sign_warning = "⚠"
 let g:ale_sign_style_error = "》"
 let g:ale_sign_style_warning = "〉"
 let g:ale_lint_delay = 5000
-let g:ale_linters = {'python': ['flake8', 'mypy'], 'javascript': ['eslint']}
+let g:ale_linters = {'python': ['flake8', 'mypy'], 'javascript': ['eslint'], 'typescript': ['tslint']}
 
 highlight ALEErrorSign ctermbg=237 ctermfg=red
 highlight ALEWarningSign ctermbg=237 ctermfg=yellow
