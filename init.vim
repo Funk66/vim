@@ -31,8 +31,6 @@ Plug 'othree/jspc.vim', {'for': 'javascript'}
 Plug 'wellle/tmux-complete.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'w0rp/ale'
-Plug 'Shougo/vimproc', {'do': 'make'}
-Plug 'Quramy/tsuquyomi', {'for': 'typescript'}
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -110,6 +108,7 @@ let g:ale_sign_style_error = "》"
 let g:ale_sign_style_warning = "〉"
 let g:ale_lint_delay = 5000
 let g:ale_linters = {'python': ['flake8', 'mypy'], 'javascript': ['eslint'], 'typescript': ['tslint']}
+let g:ale_fixers = {'typescript': ['tslint']}
 
 highlight ALEErrorSign ctermbg=237 ctermfg=red
 highlight ALEWarningSign ctermbg=237 ctermfg=yellow
@@ -167,3 +166,5 @@ set completeopt-=preview
 " => NERDTree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let NERDTreeIgnore=['\.pyc$', '__pycache__']
+
+nnoremap ñ :cn<cr>

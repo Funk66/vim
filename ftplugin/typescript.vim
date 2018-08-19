@@ -1,3 +1,4 @@
-nnoremap <leader>d :TsuDefinition<cr>
-nnoremap <leader>n :TsuReferences<cr>
-nnoremap <leader>r :TsuRename<cr>
+nnoremap <leader>D Odebugger;<Esc>
+nnoremap <leader>d :ALEGoToDefinition<cr>
+nnoremap <leader>n :ALEFindReferences<cr>
+nnoremap <leader>f :ALEFix<cr>
