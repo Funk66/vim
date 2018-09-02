@@ -31,6 +31,7 @@ Plug 'othree/jspc.vim', {'for': 'javascript'}
 Plug 'wellle/tmux-complete.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'w0rp/ale'
+Plug 'Glench/Vim-Jinja2-Syntax', {'for': 'jinja'}
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -112,6 +113,8 @@ let g:ale_fixers = {'typescript': ['tslint']}
 
 highlight ALEErrorSign ctermbg=237 ctermfg=red
 highlight ALEWarningSign ctermbg=237 ctermfg=yellow
+
+nnoremap <leader>f :ALEFix<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Gitgutter
