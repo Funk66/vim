@@ -108,7 +108,7 @@ let g:ale_sign_warning = "⚠"
 let g:ale_sign_style_error = "》"
 let g:ale_sign_style_warning = "〉"
 let g:ale_lint_delay = 5000
-let g:ale_linters = {'python': ['flake8', 'mypy'], 'javascript': ['eslint'], 'typescript': ['tslint', 'tsserver']}
+let g:ale_linters = {'python': ['flake8', 'mypy'], 'javascript': ['eslint', 'tsserver'], 'typescript': ['tslint', 'tsserver']}
 let g:ale_fixers = {'python': ['yapf'], 'javascript': ['prettier'], 'typescript': ['prettier'], 'html': ['tidy'], 'css': ['prettier']}
 
 highlight ALEErrorSign ctermbg=237 ctermfg=red
