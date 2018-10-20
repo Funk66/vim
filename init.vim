@@ -66,6 +66,7 @@ colorscheme colorsbox-stnight
 set fillchars=vert:│,fold:─
 hi VertSplit ctermbg=NONE guibg=NONE
 au BufNewFile,BufRead Jenkinsfile setf groovy
+au BufRead,BufNewFile * if expand('%:t') == 'Pipfile' | set ft=cfg | end
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
@@ -108,6 +109,7 @@ let g:ale_sign_warning = "⚠"
 let g:ale_sign_style_error = "》"
 let g:ale_sign_style_warning = "〉"
 let g:ale_lint_delay = 5000
+let g:ale_python_auto_pipenv = 1
 let g:ale_linters = {'python': ['flake8', 'mypy'], 'javascript': ['eslint', 'tsserver'], 'typescript': ['tslint', 'tsserver']}
 let g:ale_fixers = {'python': ['yapf'], 'javascript': ['prettier'], 'typescript': ['prettier'], 'html': ['tidy'], 'css': ['prettier']}
 
