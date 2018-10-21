@@ -32,6 +32,7 @@ Plug 'wellle/tmux-complete.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'w0rp/ale'
 Plug 'Glench/Vim-Jinja2-Syntax', {'for': 'jinja'}
+Plug 'pangloss/vim-javascript', {'for': 'javascript'}
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
