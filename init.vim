@@ -33,6 +33,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'w0rp/ale'
 Plug 'Glench/Vim-Jinja2-Syntax', {'for': 'jinja'}
 Plug 'pangloss/vim-javascript', {'for': 'javascript'}
+Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -67,7 +68,6 @@ colorscheme colorsbox-stnight
 set fillchars=vert:│,fold:─
 hi VertSplit ctermbg=NONE guibg=NONE
 au BufNewFile,BufRead Jenkinsfile setf groovy
-au BufRead,BufNewFile * if expand('%:t') == 'Pipfile' | set ft=cfg | end
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
@@ -86,6 +86,15 @@ set shiftwidth=2
 set tabstop=2
 set autoindent
 set smartindent
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Mappings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" allow switching window without pressing <c-w>
+nno <c-j> <c-w>j
+nno <c-k> <c-w>k
+nno <c-h> <c-w>h
+nno <c-l> <c-w>l
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Folding
@@ -110,9 +119,8 @@ let g:ale_sign_warning = "⚠"
 let g:ale_sign_style_error = "》"
 let g:ale_sign_style_warning = "〉"
 let g:ale_lint_delay = 5000
-let g:ale_python_auto_pipenv = 1
-let g:ale_linters = {'python': ['flake8', 'mypy'], 'javascript': ['eslint', 'tsserver'], 'typescript': ['tslint', 'tsserver']}
-let g:ale_fixers = {'python': ['yapf'], 'javascript': ['prettier'], 'typescript': ['prettier'], 'html': ['tidy'], 'css': ['prettier']}
+let g:ale_linters = {'python': ['flake8', 'mypy'], 'javascript': ['eslint', 'tsserver'], 'typescript': ['tslint', 'tsserver'], 'terraform': ['terraform', 'tflint']}
+let g:ale_fixers = {'python': ['yapf', 'isort'], 'javascript': ['prettier'], 'typescript': ['prettier'], 'html': ['tidy'], 'css': ['prettier'], 'json': ['jq'], 'terraform': ['terraform']}
 
 highlight ALEErrorSign ctermbg=237 ctermfg=red
 highlight ALEWarningSign ctermbg=237 ctermfg=yellow
@@ -162,6 +170,11 @@ let g:tagbar_sort = 0
 command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 nnoremap <c-p> :FZF<cr>
 
+command! -bang -nargs=* GGrep
+  \ call fzf#vim#grep(
+  \   'git grep --line-number '.shellescape(<q-args>), 0,
+  \   { 'dir': systemlist('git rev-parse --show-toplevel')[0] }, <bang>0)
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Deoplete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -172,5 +185,8 @@ set completeopt-=preview
 " => NERDTree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let NERDTreeIgnore=['\.pyc$', '__pycache__']
+nnoremap <leader>tv :NERDTreeVCS<cr>
+nnoremap <leader>tt :NERDTreeToggle<cr>
+nnoremap <leader>tf :NERDTreeFind<cr>
 
 nnoremap ñ :cn<cr>
