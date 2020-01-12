@@ -34,6 +34,11 @@ Plug 'w0rp/ale'
 Plug 'Glench/Vim-Jinja2-Syntax', {'for': 'jinja'}
 Plug 'pangloss/vim-javascript', {'for': 'javascript'}
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
+Plug 'skreuzer/vim-prometheus'
+Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
+Plug 'hashivim/vim-terraform'
+Plug 'juliosueiras/vim-terraform-completion'
+Plug 'towolf/vim-helm'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -72,9 +77,8 @@ au BufNewFile,BufRead Jenkinsfile setf groovy
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set nobackup
-set nowritebackup
-set noswapfile
+set backupdir=/tmp
+set directory=/tmp
 set hidden
 set confirm
 
@@ -179,7 +183,10 @@ command! -bang -nargs=* GGrep
 " => Deoplete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#omni_patterns = {}
+let g:deoplete#omni_patterns.terraform = '[^ *\t"{=$]\w*'
 set completeopt-=preview
+call deoplete#initialize()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => NERDTree
@@ -190,3 +197,15 @@ nnoremap <leader>tt :NERDTreeToggle<cr>
 nnoremap <leader>tf :NERDTreeFind<cr>
 
 nnoremap ñ :cn<cr>
+
+noremap <PageDown> <Nop>
+noremap <PageUp> <Nop>
+
+" Fugitive
+command -nargs=+ Ggr execute 'silent Ggrep!' <q-args> | cw | redraw!
+nno <leader>F :Ggr '<c-r>0'<cr>
+nnoremap gr :Ggr <cword> *<CR>
+nnoremap gR :Ggr '\b<cword>\b' *<CR>
+
+" GBlame
+nno <leader>bb :Gblame<cr>
