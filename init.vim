@@ -30,7 +30,7 @@ Plug 'carlitux/deoplete-ternjs', {'for': 'javascript'}
 Plug 'othree/jspc.vim', {'for': 'javascript'}
 Plug 'wellle/tmux-complete.vim'
 Plug 'leafgarland/typescript-vim'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'Glench/Vim-Jinja2-Syntax', {'for': 'jinja'}
 Plug 'pangloss/vim-javascript', {'for': 'javascript'}
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
@@ -38,8 +38,11 @@ Plug 'skreuzer/vim-prometheus'
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 Plug 'hashivim/vim-terraform'
 Plug 'juliosueiras/vim-terraform-completion'
+Plug 'vimwiki/vimwiki'
 Plug 'towolf/vim-helm'
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'MaxMEllon/vim-jsx-pretty'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -124,8 +127,8 @@ let g:ale_sign_warning = "⚠"
 let g:ale_sign_style_error = "》"
 let g:ale_sign_style_warning = "〉"
 let g:ale_lint_delay = 5000
-let g:ale_linters = {'python': ['flake8', 'mypy'], 'javascript': ['eslint', 'tsserver'], 'typescript': ['tslint', 'tsserver'], 'terraform': ['terraform', 'tflint']}
-let g:ale_fixers = {'python': ['black'], 'javascript': ['prettier'], 'typescript': ['prettier'], 'html': ['tidy'], 'css': ['prettier'], 'json': ['jq'], 'terraform': ['terraform'], 'yaml': ['prettier']}
+let g:ale_linters = {'python': ['flake8', 'mypy'], 'javascript': ['eslint'], 'javascriptreact': ['eslint'], 'typescriptreact': ['eslint'], 'typescript': ['tslint', 'tsserver'], 'terraform': ['terraform', 'tflint'], 'css': ['stylelint']}
+let g:ale_fixers = {'python': ['black'], 'javascript': ['eslint'], 'javascriptreact': ['eslint'], 'typescriptreact': ['eslint'], 'typescript': ['prettier'], 'html': ['prettier'], 'css': ['prettier'], 'json': ['jq'], 'terraform': ['terraform'], 'yaml': ['prettier']}
 
 highlight ALEErrorSign ctermbg=237 ctermfg=red
 highlight ALEWarningSign ctermbg=237 ctermfg=yellow
@@ -210,3 +213,8 @@ nnoremap gR :Ggr '\b<cword>\b' *<CR>
 
 " GBlame
 nno <leader>bb :Gblame<cr>
+
+let g:vimwiki_list = [{'path': '~/.config/vimwiki/'}]
+
+" Exit terminal
+tnoremap <Esc><Esc> <C-\><C-n>
