@@ -1,51 +1,55 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Plugins
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin()
-Plug 'vim-airline/vim-airline'
+" Git
 Plug 'tpope/vim-fugitive'
-"Plug 'tpope/vim-commentary'
-Plug 'scrooloose/nerdcommenter'
-Plug 'mkarmona/colorsbox'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'airblade/vim-gitgutter'
-Plug 'chrisbra/csv.vim', {'for': 'csv'}
-Plug 'wavded/vim-stylus', {'for': 'stylus'}
-Plug 'digitaltoad/vim-pug', {'for': 'pug'}
+
+" Files
+Plug 'scrooloose/nerdtree'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" Common
+Plug 'scrooloose/nerdcommenter'
 Plug 'jiangmiao/auto-pairs'
+Plug 'majutsushi/tagbar'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'ryanoasis/vim-devicons'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'majutsushi/tagbar'
-Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
-Plug 'junegunn/fzf.vim'
-Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
-Plug 'tmhedberg/SimpylFold', {'for': 'python'}
+Plug 'wellle/tmux-complete.vim'
+Plug 'dense-analysis/ale'
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
-Plug 'zchee/deoplete-jedi', {'for': 'python'}
-Plug 'davidhalter/jedi-vim', {'for': 'python'}
+
+" JS
+Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'pangloss/vim-javascript', {'for': 'javascript'}
 Plug 'ternjs/tern_for_vim', {'for': 'javascript'}
 Plug 'carlitux/deoplete-ternjs', {'for': 'javascript'}
 Plug 'othree/jspc.vim', {'for': 'javascript'}
-Plug 'wellle/tmux-complete.vim'
-"Plug 'leafgarland/typescript-vim'
-Plug 'dense-analysis/ale'
-Plug 'Glench/Vim-Jinja2-Syntax', {'for': 'jinja'}
-Plug 'pangloss/vim-javascript', {'for': 'javascript'}
-Plug 'skreuzer/vim-prometheus'
-"Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'wavded/vim-stylus', {'for': 'stylus'}
+Plug 'digitaltoad/vim-pug', {'for': 'pug'}
+Plug 'HerringtonDarkholme/yats.vim', {'for': 'typescript'}
+
+"Python
+Plug 'numirias/semshi', {'for': 'python', 'do': ':UpdateRemotePlugins'}
+Plug 'zchee/deoplete-jedi', {'for': 'python'}
+Plug 'davidhalter/jedi-vim', {'for': 'python'}
+Plug 'tmhedberg/SimpylFold', {'for': 'python'}
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
+Plug 'Glench/Vim-Jinja2-Syntax', {'for': 'jinja'}
+
+" Others
+Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
+Plug 'chrisbra/csv.vim', {'for': 'csv'}
+Plug 'towolf/vim-helm'
+Plug 'skreuzer/vim-prometheus'
 Plug 'hashivim/vim-terraform'
 Plug 'juliosueiras/vim-terraform-completion'
 Plug 'vimwiki/vimwiki'
-Plug 'towolf/vim-helm'
-Plug 'dbeniamine/cheat.sh-vim'
-"Plug 'google/vim-jsonnet'
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'MaxMEllon/vim-jsx-pretty'
+
+" Appearance
+Plug 'vim-airline/vim-airline'
+Plug 'mkarmona/colorsbox'
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -118,6 +122,13 @@ noremap <PageUp> <Nop>
 inoremap <PageDown> <Nop>
 inoremap <PageUp> <Nop>
 
+nnoremap ñ :cn<cr>
+command -nargs=+ Ggr execute 'silent Ggrep!' <q-args> | cw | redraw!
+nnoremap gr :Ggr <cword> *<CR>
+nnoremap gR :Ggr '\b<cword>\b' *<CR>
+nno <leader>F :Ggr '<c-r>0'<cr>
+nno <leader>bb :Gblame<cr>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Folding
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -168,20 +179,6 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#ale#enabled = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => CSV
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"aug CSV_Editing
-    "au!
-    "au BufRead,BufWritePost *.csv :%ArrangeColumn
-    "au BufWritePre *.csv :%UnArrangeColumn
-"aug end
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Vim devicons
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Tagbar
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:tagbar_sort = 0
@@ -209,25 +206,13 @@ call deoplete#initialize()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => NERDTree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let NERDTreeIgnore=['\.pyc$', '__pycache__']
+let NERDTreeIgnore=['\.pyc$', '__pycache__', 'node_modules']
 nnoremap <leader>tv :NERDTreeVCS<cr>
 nnoremap <leader>tt :NERDTreeToggle<cr>
 nnoremap <leader>tf :NERDTreeFind<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-nnoremap ñ :cn<cr>
-"let g:python_highlight_all = 1
-
-" Fugitive
-command -nargs=+ Ggr execute 'silent Ggrep!' <q-args> | cw | redraw!
-nno <leader>F :Ggr '<c-r>0'<cr>
-nnoremap gr :Ggr <cword> *<CR>
-"nnoremap Gr :Ggrep <cword> -- %:p:h/*<CR>
-nnoremap gR :Ggr '\b<cword>\b' *<CR>
-"nnoremap GR :Ggrep '\b<cword>\b' -- %:p:h/*<CR>
-
-" GBlame
-nno <leader>bb :Gblame<cr>
+" => VimWiki
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:vimwiki_list = [{'path': '~/.config/vimwiki/'}]
