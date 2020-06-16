@@ -4,9 +4,10 @@
 call plug#begin()
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
+"Plug 'tpope/vim-commentary'
 Plug 'scrooloose/nerdcommenter'
 Plug 'mkarmona/colorsbox'
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'airblade/vim-gitgutter'
 Plug 'chrisbra/csv.vim', {'for': 'csv'}
 Plug 'wavded/vim-stylus', {'for': 'stylus'}
@@ -29,17 +30,19 @@ Plug 'ternjs/tern_for_vim', {'for': 'javascript'}
 Plug 'carlitux/deoplete-ternjs', {'for': 'javascript'}
 Plug 'othree/jspc.vim', {'for': 'javascript'}
 Plug 'wellle/tmux-complete.vim'
-Plug 'leafgarland/typescript-vim'
+"Plug 'leafgarland/typescript-vim'
 Plug 'dense-analysis/ale'
 Plug 'Glench/Vim-Jinja2-Syntax', {'for': 'jinja'}
 Plug 'pangloss/vim-javascript', {'for': 'javascript'}
-Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 Plug 'skreuzer/vim-prometheus'
+"Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 Plug 'hashivim/vim-terraform'
 Plug 'juliosueiras/vim-terraform-completion'
 Plug 'vimwiki/vimwiki'
 Plug 'towolf/vim-helm'
+Plug 'dbeniamine/cheat.sh-vim'
+"Plug 'google/vim-jsonnet'
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'MaxMEllon/vim-jsx-pretty'
@@ -71,6 +74,9 @@ set conceallevel=2
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax enable
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+set termguicolors
 set t_Co=256
 set background=dark
 colorscheme colorsbox-stnight
@@ -103,6 +109,14 @@ nno <c-j> <c-w>j
 nno <c-k> <c-w>k
 nno <c-h> <c-w>h
 nno <c-l> <c-w>l
+
+" Exit terminal
+tnoremap <Esc><Esc> <C-\><C-n>
+
+noremap <PageDown> <Nop>
+noremap <PageUp> <Nop>
+inoremap <PageDown> <Nop>
+inoremap <PageUp> <Nop>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Folding
@@ -156,11 +170,11 @@ let g:airline#extensions#ale#enabled = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => CSV
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-aug CSV_Editing
-    au!
-    au BufRead,BufWritePost *.csv :%ArrangeColumn
-    au BufWritePre *.csv :%UnArrangeColumn
-aug end
+"aug CSV_Editing
+    "au!
+    "au BufRead,BufWritePost *.csv :%ArrangeColumn
+    "au BufWritePre *.csv :%UnArrangeColumn
+"aug end
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vim devicons
@@ -200,21 +214,20 @@ nnoremap <leader>tv :NERDTreeVCS<cr>
 nnoremap <leader>tt :NERDTreeToggle<cr>
 nnoremap <leader>tf :NERDTreeFind<cr>
 
-nnoremap ñ :cn<cr>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-noremap <PageDown> <Nop>
-noremap <PageUp> <Nop>
+nnoremap ñ :cn<cr>
+"let g:python_highlight_all = 1
 
 " Fugitive
 command -nargs=+ Ggr execute 'silent Ggrep!' <q-args> | cw | redraw!
 nno <leader>F :Ggr '<c-r>0'<cr>
 nnoremap gr :Ggr <cword> *<CR>
+"nnoremap Gr :Ggrep <cword> -- %:p:h/*<CR>
 nnoremap gR :Ggr '\b<cword>\b' *<CR>
+"nnoremap GR :Ggrep '\b<cword>\b' -- %:p:h/*<CR>
 
 " GBlame
 nno <leader>bb :Gblame<cr>
 
 let g:vimwiki_list = [{'path': '~/.config/vimwiki/'}]
-
-" Exit terminal
-tnoremap <Esc><Esc> <C-\><C-n>
