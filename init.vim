@@ -29,10 +29,12 @@ Plug 'wavded/vim-stylus', {'for': 'stylus'}
 Plug 'digitaltoad/vim-pug', {'for': 'pug'}
 Plug 'HerringtonDarkholme/yats.vim', {'for': 'typescript'}
 
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 "Python
-Plug 'numirias/semshi', {'for': 'python', 'do': ':UpdateRemotePlugins'}
-Plug 'zchee/deoplete-jedi', {'for': 'python'}
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'davidhalter/jedi-vim', {'for': 'python'}
+Plug 'zchee/deoplete-jedi', {'for': 'python'}
 Plug 'tmhedberg/SimpylFold', {'for': 'python'}
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 Plug 'Glench/Vim-Jinja2-Syntax', {'for': 'jinja'}
@@ -45,6 +47,7 @@ Plug 'skreuzer/vim-prometheus'
 Plug 'hashivim/vim-terraform'
 Plug 'juliosueiras/vim-terraform-completion'
 Plug 'vimwiki/vimwiki'
+Plug 'terminalnode/sway-vim-syntax'
 
 " Appearance
 Plug 'vim-airline/vim-airline'
@@ -58,6 +61,8 @@ call plug#end()
 filetype plugin on
 filetype indent on
 
+"set exrc
+"set secure
 let mapleader=","
 set foldmethod=indent
 set foldlevelstart=99
@@ -73,6 +78,7 @@ set mouse=a
 set history=50
 set matchtime=2
 set conceallevel=2
+set autowrite
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
@@ -104,6 +110,7 @@ set shiftwidth=2
 set tabstop=2
 set autoindent
 set smartindent
+set formatoptions-=t
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Mappings
@@ -153,7 +160,7 @@ let g:ale_sign_style_error = "》"
 let g:ale_sign_style_warning = "〉"
 let g:ale_lint_delay = 5000
 let g:ale_linters = {'python': ['flake8', 'mypy'], 'javascript': ['eslint'], 'javascriptreact': ['eslint'], 'typescriptreact': ['eslint'], 'typescript': ['tslint', 'tsserver'], 'terraform': ['terraform', 'tflint'], 'css': ['stylelint']}
-let g:ale_fixers = {'python': ['black'], 'javascript': ['eslint'], 'javascriptreact': ['eslint'], 'typescriptreact': ['eslint'], 'typescript': ['prettier'], 'html': ['prettier'], 'css': ['prettier'], 'json': ['jq'], 'terraform': ['terraform'], 'yaml': ['prettier']}
+let g:ale_fixers = {'python': ['black'], 'javascript': ['eslint'], 'javascriptreact': ['eslint'], 'typescriptreact': ['eslint'], 'typescript': ['prettier'], 'html': ['prettier'], 'css': ['prettier'], 'json': ['jq'], 'terraform': ['terraform'], 'yaml': ['prettier'], 'go': ['gofmt']}
 
 highlight ALEErrorSign ctermbg=237 ctermfg=red
 highlight ALEWarningSign ctermbg=237 ctermfg=yellow
@@ -200,6 +207,7 @@ command! -bang -nargs=* GGrep
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#omni_patterns = {}
 let g:deoplete#omni_patterns.terraform = '[^ *\t"{=$]\w*'
+call deoplete#custom#option('auto_complete_delay', 100)
 set completeopt-=preview
 call deoplete#initialize()
 
@@ -216,3 +224,22 @@ nnoremap <leader>tf :NERDTreeFind<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:vimwiki_list = [{'path': '~/.config/vimwiki/'}]
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Go
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+autocmd FileType go nmap <leader>r <Plug>(go-run)
+autocmd FileType go nmap <leader>t <Plug>(go-test)
+autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
