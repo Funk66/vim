@@ -92,6 +92,7 @@ set background=dark
 colorscheme colorsbox-stnight
 set fillchars=vert:│,fold:─
 hi VertSplit ctermbg=NONE guibg=NONE
+hi SignColumn ctermbg=NONE guibg=NONE
 au BufNewFile,BufRead Jenkinsfile setf groovy
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -174,6 +175,9 @@ let g:gitgutter_sign_added = '⎢'
 let g:gitgutter_sign_modified = '⎢'
 let g:gitgutter_sign_removed = '＿'
 let g:gitgutter_sign_modified_removed = '⎣'
+highlight GitGutterAdd    guibg=NONE ctermbg=NONE
+highlight GitGutterChange guibg=NONE ctermbg=NONE
+highlight GitGutterDelete guibg=NONE ctermbg=NONE
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Airline
