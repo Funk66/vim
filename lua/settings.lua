@@ -28,8 +28,6 @@ vim.o.swapfile = false
 vim.o.tabstop = 4
 vim.o.termguicolors = true
 vim.o.timeoutlen = 100
-vim.o.title = true
-vim.o.titlestring = "%<%F%=%l/%L"
 vim.o.undodir = CACHE_PATH .. "/undo"
 vim.o.undofile = true
 vim.o.updatetime = 300
