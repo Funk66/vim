@@ -1,20 +1,19 @@
-vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', {silent = true})
-vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', {silent = true})
-vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', {silent = true})
-vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', {silent = true})
+local map = require("cartographer")
+local key = map.n.nore.silent
 
-vim.api.nvim_set_keymap('n', '<C-Up>', ':resize -2<CR>', {silent = true})
-vim.api.nvim_set_keymap('n', '<C-Down>', ':resize +2<CR>', {silent = true})
-vim.api.nvim_set_keymap('n', '<C-Left>', ':vertical resize -2<CR>', {silent = true})
-vim.api.nvim_set_keymap('n', '<C-Right>', ':vertical resize +2<CR>', {silent = true})
+key["<C-h>"] = "<C-w>h"
+key["<C-j>"] = "<C-w>j"
+key["<C-k>"] = "<C-w>k"
+key["<C-l>"] = "<C-w>l"
 
-vim.api.nvim_set_keymap('n', '<TAB>', ':bnext<CR>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<S-TAB>', ':bprevious<CR>', {noremap = true, silent = true})
+key["<C-Up>"] = ":resize -2<CR>"
+key["<C-Down>"] = ":resize +2<CR>"
+key["<C-Left>"] = ":vertical resize -2<CR>"
+key["<C-Right>"] = ":vertical resize +2<CR>"
 
-vim.cmd('inoremap <expr> <c-j> (\"\\<C-n>\")')
-vim.cmd('inoremap <expr> <c-k> (\"\\<C-p>\")')
+key["<PageDown>"] = "<Nop>"
+key["<PageUp>"] = "<Nop>"
+map.i.silent["<PageDown>"] = "<Nop>"
+map.i.silent["<PageUp>"] = "<Nop>"
 
-vim.api.nvim_set_keymap('n', '<PageDown>', '<Nop>', {silent = true})
-vim.api.nvim_set_keymap('n', '<PageUp>', '<Nop>', {silent = true})
-vim.api.nvim_set_keymap('i', '<PageDown>', '<Nop>', {silent = true})
-vim.api.nvim_set_keymap('i', '<PageUp>', '<Nop>', {silent = true})
+key["<A-q>"] = ":quit<CR>"
