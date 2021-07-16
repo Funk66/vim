@@ -30,7 +30,7 @@ return require("packer").startup({function()
     use {
         "kyazdani42/nvim-tree.lua",
         requires = {"kyazdani42/nvim-web-devicons"},
-        config = 'require("config.nvimtree")',
+        config = 'require("config.nvim-tree")',
     }
 end,
 config = {
