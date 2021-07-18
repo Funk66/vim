@@ -1,7 +1,12 @@
-return require("packer").startup({function()
+return require("packer").startup({function(use)
     use "wbthomason/packer.nvim"
     use "neovim/nvim-lspconfig"
     use "glepnir/lspsaga.nvim"
+    use{
+        "kabouzeid/nvim-lspinstall",
+        event = "VimEnter",
+        config = 'require("config.lspinstall")',
+    }
 
     use 'Iron-E/nvim-cartographer'
 
@@ -30,8 +35,10 @@ return require("packer").startup({function()
     use {
         "kyazdani42/nvim-tree.lua",
         requires = {"kyazdani42/nvim-web-devicons"},
-        config = 'require("config.nvim-tree")',
+        config = 'require("config.tree")',
     }
+
+    use "b3nj5m1n/kommentary"
 end,
 config = {
   display = {

@@ -1,6 +1,4 @@
 local telescope = require("telescope")
-local map = require("cartographer")
-local key = map.n.nore.silent
 
 telescope.setup({
     defaults = {
@@ -11,7 +9,3 @@ telescope.setup({
         }
     }
 })
-
-key["<C-f>"] = ":Telescope find_files<CR>"
-key["<A-g>"] = ":Telescope grep_string<CR>"
-key["<A-s>"] = ":Telescope live_grep<CR>"

@@ -4,7 +4,7 @@ local state = require("bufferline.state")
 local map = require("cartographer")
 local key = map.n.nore.silent
 
-key["<A-o>"] = ":lua require('config.nvim-tree').toggle()<CR>"
+key["<A-o>"] = ":lua require('config.tree').toggle()<CR>"
 key["<A-i>"] = ":NvimTreeFindFile<CR>"
 key["<A-u>"] = ":NvimTreeRefresh<CR>"
 
@@ -16,7 +16,7 @@ vim.g.nvim_tree_indent_markers = 1
 vim.g.nvim_tree_tab_open = 1
 vim.g.nvim_tree_ignore = {".git", "node_modules", ".cache"}
 vim.g.nvim_tree_bindings = {
-    { key = "q", cb = ":lua require('config.nvim-tree').toggle()<CR>" }
+    { key = "q", cb = ":lua require('config.tree').toggle()<CR>" }
 }
 vim.g.nvim_tree_show_icons = {
     git = 0,

@@ -17,3 +17,7 @@ map.i.silent["<PageDown>"] = "<Nop>"
 map.i.silent["<PageUp>"] = "<Nop>"
 
 key["<A-q>"] = ":quit<CR>"
+
+key["<A-f>"] = ":Telescope find_files<CR>"
+key["<A-g>"] = ":Telescope grep_string<CR>"
+key["<A-s>"] = ":Telescope live_grep<CR>"
