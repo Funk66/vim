@@ -14,11 +14,13 @@ packer.startup({function(use)
         config = 'require("config.lspinstall")',
     }
 
-    use "glepnir/lspsaga.nvim"
+    use {
+        "glepnir/lspsaga.nvim",
+        config = 'require("config.lspsaga")',
+    }
 
     use {
         "mhartington/formatter.nvim",
-        event = "FormatWrite",
         config = 'require("config.formatter")',
     }
 
@@ -74,10 +76,9 @@ packer.startup({function(use)
         "windwp/nvim-autopairs",
         config = 'require("config.autopairs")',
     }
-
 end,
 config = {
     display = {
-        open_fn = require('packer.util').float,
+        open_fn = require("packer.util").float,
   }
 }})

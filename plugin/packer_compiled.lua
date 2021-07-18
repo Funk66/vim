@@ -80,9 +80,8 @@ _G.packer_plugins = {
   },
   ["formatter.nvim"] = {
     config = { 'require("config.formatter")' },
-    loaded = false,
-    needs_bufread = false,
-    path = "/home/guillermo/.local/share/nvim/site/pack/packer/opt/formatter.nvim"
+    loaded = true,
+    path = "/home/guillermo/.local/share/nvim/site/pack/packer/start/formatter.nvim"
   },
   ["gitsigns.nvim"] = {
     config = { 'require("gitsigns").setup()' },
@@ -94,6 +93,7 @@ _G.packer_plugins = {
     path = "/home/guillermo/.local/share/nvim/site/pack/packer/start/kommentary"
   },
   ["lspsaga.nvim"] = {
+    config = { 'require("config.lspsaga")' },
     loaded = true,
     path = "/home/guillermo/.local/share/nvim/site/pack/packer/start/lspsaga.nvim"
   },
@@ -158,14 +158,14 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: formatter.nvim
+time([[Config for formatter.nvim]], true)
+require("config.formatter")
+time([[Config for formatter.nvim]], false)
 -- Config for: nvim-lspconfig
 time([[Config for nvim-lspconfig]], true)
 require("config.lsp")
 time([[Config for nvim-lspconfig]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-require("config.lualine")
-time([[Config for lualine.nvim]], false)
 -- Config for: nvim-tree.lua
 time([[Config for nvim-tree.lua]], true)
 require("config.tree")
@@ -174,18 +174,26 @@ time([[Config for nvim-tree.lua]], false)
 time([[Config for barbar.nvim]], true)
 require("config.barbar")
 time([[Config for barbar.nvim]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-require("gitsigns").setup()
-time([[Config for gitsigns.nvim]], false)
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
-require("config.autopairs")
-time([[Config for nvim-autopairs]], false)
 -- Config for: nvim-compe
 time([[Config for nvim-compe]], true)
 require("config.compe")
 time([[Config for nvim-compe]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+require("config.lualine")
+time([[Config for lualine.nvim]], false)
+-- Config for: lspsaga.nvim
+time([[Config for lspsaga.nvim]], true)
+require("config.lspsaga")
+time([[Config for lspsaga.nvim]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+require("config.autopairs")
+time([[Config for nvim-autopairs]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+require("gitsigns").setup()
+time([[Config for gitsigns.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
@@ -199,7 +207,6 @@ vim.cmd [[au!]]
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
 vim.cmd [[au VimEnter * ++once lua require("packer.load")({'nvim-lspinstall'}, { event = "VimEnter *" }, _G.packer_plugins)]]
-vim.cmd [[au FormatWrite * ++once lua require("packer.load")({'formatter.nvim'}, { event = "FormatWrite *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end
