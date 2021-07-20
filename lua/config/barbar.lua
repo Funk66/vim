@@ -2,8 +2,8 @@ local map = require("cartographer")
 local key = map.n.nore.silent
 
 vim.g.bufferline = {
-    icons = "both",
-    closable = false,
+	icons = "both",
+	closable = false,
 }
 
 key["<A-b>"] = ":buffer #<CR>"
