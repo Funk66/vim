@@ -77,6 +77,11 @@ packer.startup({
 			"windwp/nvim-autopairs",
 			config = 'require("config.autopairs")',
 		})
+
+		use({
+			"karb94/neoscroll.nvim",
+			config = 'require("neoscroll").setup()',
+		})
 	end,
 	config = {
 		display = {

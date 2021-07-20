@@ -102,6 +102,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/guillermo/.local/share/nvim/site/pack/packer/start/lualine.nvim"
   },
+  ["neoscroll.nvim"] = {
+    config = { 'require("neoscroll").setup()' },
+    loaded = true,
+    path = "/home/guillermo/.local/share/nvim/site/pack/packer/start/neoscroll.nvim"
+  },
   ["nvim-autopairs"] = {
     config = { 'require("config.autopairs")' },
     loaded = true,
