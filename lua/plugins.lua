@@ -21,6 +21,13 @@ packer.startup({
 		})
 
 		use({
+			"nvim-treesitter/nvim-treesitter",
+			run = ":TSUpdate",
+			event = "BufRead",
+			config = 'require("config.treesitter")',
+		})
+
+		use({
 			"mhartington/formatter.nvim",
 			config = 'require("config.formatter")',
 		})

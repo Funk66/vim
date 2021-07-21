@@ -137,6 +137,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/guillermo/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
   },
+  ["nvim-treesitter"] = {
+    config = { 'require("config.treesitter")' },
+    loaded = false,
+    needs_bufread = true,
+    path = "/home/guillermo/.local/share/nvim/site/pack/packer/opt/nvim-treesitter"
+  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/home/guillermo/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
@@ -212,6 +218,7 @@ vim.cmd [[au!]]
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
 vim.cmd [[au VimEnter * ++once lua require("packer.load")({'nvim-lspinstall'}, { event = "VimEnter *" }, _G.packer_plugins)]]
+vim.cmd [[au BufRead * ++once lua require("packer.load")({'nvim-treesitter'}, { event = "BufRead *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end
