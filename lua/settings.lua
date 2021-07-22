@@ -1,7 +1,6 @@
 CACHE_PATH = vim.fn.stdpath("cache")
 
 vim.cmd("filetype plugin on")
-vim.cmd("colorscheme spacegray")
 
 vim.g.mapleader = ","
 vim.g.python3_host_prog = "/usr/bin/python"

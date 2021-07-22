@@ -83,6 +83,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/guillermo/.local/share/nvim/site/pack/packer/start/formatter.nvim"
   },
+  ["github-nvim-theme"] = {
+    config = { 'require("github-theme").setup()' },
+    loaded = true,
+    path = "/home/guillermo/.local/share/nvim/site/pack/packer/start/github-nvim-theme"
+  },
   ["gitsigns.nvim"] = {
     config = { 'require("gitsigns").setup()' },
     loaded = true,
@@ -197,6 +202,10 @@ time([[Config for lualine.nvim]], false)
 time([[Config for lspsaga.nvim]], true)
 require("config.lspsaga")
 time([[Config for lspsaga.nvim]], false)
+-- Config for: github-nvim-theme
+time([[Config for github-nvim-theme]], true)
+require("github-theme").setup()
+time([[Config for github-nvim-theme]], false)
 -- Config for: nvim-autopairs
 time([[Config for nvim-autopairs]], true)
 require("config.autopairs")

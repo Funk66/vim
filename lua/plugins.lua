@@ -4,6 +4,11 @@ packer.startup({
 	function(use)
 		use("wbthomason/packer.nvim")
 
+		use {
+			'projekt0n/github-nvim-theme',
+			config = 'require("github-theme").setup()',
+		}
+
 		use({
 			"neovim/nvim-lspconfig",
 			config = 'require("config.lsp")',
