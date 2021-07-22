@@ -94,6 +94,7 @@ _G.packer_plugins = {
     path = "/home/guillermo/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
   },
   kommentary = {
+    config = { 'require("config.kommentary")' },
     loaded = true,
     path = "/home/guillermo/.local/share/nvim/site/pack/packer/start/kommentary"
   },
@@ -147,6 +148,10 @@ _G.packer_plugins = {
     loaded = false,
     needs_bufread = true,
     path = "/home/guillermo/.local/share/nvim/site/pack/packer/opt/nvim-treesitter"
+  },
+  ["nvim-ts-context-commentstring"] = {
+    loaded = true,
+    path = "/home/guillermo/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
@@ -202,14 +207,10 @@ time([[Config for lualine.nvim]], false)
 time([[Config for lspsaga.nvim]], true)
 require("config.lspsaga")
 time([[Config for lspsaga.nvim]], false)
--- Config for: github-nvim-theme
-time([[Config for github-nvim-theme]], true)
-require("github-theme").setup()
-time([[Config for github-nvim-theme]], false)
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
-require("config.autopairs")
-time([[Config for nvim-autopairs]], false)
+-- Config for: kommentary
+time([[Config for kommentary]], true)
+require("config.kommentary")
+time([[Config for kommentary]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
 require("gitsigns").setup()

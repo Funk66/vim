@@ -72,7 +72,10 @@ packer.startup({
 			config = 'require("config.tree")',
 		})
 
-		use("b3nj5m1n/kommentary")
+		use({
+			"b3nj5m1n/kommentary",
+			config = 'require("config.kommentary")',
+		})
 
 		use({
 			"hrsh7th/nvim-compe",
@@ -94,6 +97,8 @@ packer.startup({
 			"karb94/neoscroll.nvim",
 			config = 'require("neoscroll").setup()',
 		})
+
+		use("JoosepAlviste/nvim-ts-context-commentstring")
 	end,
 	config = {
 		display = {
