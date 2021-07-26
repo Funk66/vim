@@ -145,9 +145,8 @@ _G.packer_plugins = {
   },
   ["nvim-treesitter"] = {
     config = { 'require("config.treesitter")' },
-    loaded = false,
-    needs_bufread = true,
-    path = "/home/guillermo/.local/share/nvim/site/pack/packer/opt/nvim-treesitter"
+    loaded = true,
+    path = "/home/guillermo/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
   },
   ["nvim-ts-context-commentstring"] = {
     loaded = true,
@@ -199,6 +198,14 @@ time([[Config for barbar.nvim]], false)
 time([[Config for nvim-compe]], true)
 require("config.compe")
 time([[Config for nvim-compe]], false)
+-- Config for: github-nvim-theme
+time([[Config for github-nvim-theme]], true)
+require("github-theme").setup()
+time([[Config for github-nvim-theme]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+require("config.treesitter")
+time([[Config for nvim-treesitter]], false)
 -- Config for: lualine.nvim
 time([[Config for lualine.nvim]], true)
 require("config.lualine")
@@ -215,12 +222,18 @@ time([[Config for kommentary]], false)
 time([[Config for gitsigns.nvim]], true)
 require("gitsigns").setup()
 time([[Config for gitsigns.nvim]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+require("config.autopairs")
+time([[Config for nvim-autopairs]], false)
+-- Config for: neoscroll.nvim
+time([[Config for neoscroll.nvim]], true)
+require("neoscroll").setup()
+time([[Config for neoscroll.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
-if vim.fn.exists(":Telescope") ~= 2 then
-vim.cmd [[command! -nargs=* -range -bang -complete=file Telescope lua require("packer.load")({'telescope.nvim'}, { cmd = "Telescope", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]]
-end
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Telescope lua require("packer.load")({'telescope.nvim'}, { cmd = "Telescope", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
 time([[Defining lazy-load commands]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]
@@ -228,7 +241,6 @@ vim.cmd [[au!]]
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
 vim.cmd [[au VimEnter * ++once lua require("packer.load")({'nvim-lspinstall'}, { event = "VimEnter *" }, _G.packer_plugins)]]
-vim.cmd [[au BufRead * ++once lua require("packer.load")({'nvim-treesitter'}, { event = "BufRead *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end
