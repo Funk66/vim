@@ -132,12 +132,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/guillermo/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
   },
-  ["nvim-lspinstall"] = {
-    config = { 'require("config.lspinstall")' },
-    loaded = false,
-    needs_bufread = false,
-    path = "/home/guillermo/.local/share/nvim/site/pack/packer/opt/nvim-lspinstall"
-  },
   ["nvim-tree.lua"] = {
     config = { 'require("config.tree")' },
     loaded = true,
@@ -198,14 +192,14 @@ time([[Config for barbar.nvim]], false)
 time([[Config for nvim-compe]], true)
 require("config.compe")
 time([[Config for nvim-compe]], false)
--- Config for: github-nvim-theme
-time([[Config for github-nvim-theme]], true)
-require("github-theme").setup()
-time([[Config for github-nvim-theme]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
 require("config.treesitter")
 time([[Config for nvim-treesitter]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+require("gitsigns").setup()
+time([[Config for gitsigns.nvim]], false)
 -- Config for: lualine.nvim
 time([[Config for lualine.nvim]], true)
 require("config.lualine")
@@ -218,10 +212,10 @@ time([[Config for lspsaga.nvim]], false)
 time([[Config for kommentary]], true)
 require("config.kommentary")
 time([[Config for kommentary]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-require("gitsigns").setup()
-time([[Config for gitsigns.nvim]], false)
+-- Config for: github-nvim-theme
+time([[Config for github-nvim-theme]], true)
+require("github-theme").setup()
+time([[Config for github-nvim-theme]], false)
 -- Config for: nvim-autopairs
 time([[Config for nvim-autopairs]], true)
 require("config.autopairs")
@@ -236,13 +230,6 @@ time([[Defining lazy-load commands]], true)
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Telescope lua require("packer.load")({'telescope.nvim'}, { cmd = "Telescope", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
 time([[Defining lazy-load commands]], false)
 
-vim.cmd [[augroup packer_load_aucmds]]
-vim.cmd [[au!]]
-  -- Event lazy-loads
-time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au VimEnter * ++once lua require("packer.load")({'nvim-lspinstall'}, { event = "VimEnter *" }, _G.packer_plugins)]]
-time([[Defining lazy-load event autocommands]], false)
-vim.cmd("augroup END")
 if should_profile then save_profiles() end
 
 end)

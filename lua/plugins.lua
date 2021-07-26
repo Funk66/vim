@@ -15,12 +15,6 @@ packer.startup({
 		})
 
 		use({
-			"kabouzeid/nvim-lspinstall",
-			event = "VimEnter",
-			config = 'require("config.lspinstall")',
-		})
-
-		use({
 			"glepnir/lspsaga.nvim",
 			config = 'require("config.lspsaga")',
 		})
