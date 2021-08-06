@@ -120,6 +120,8 @@ packer.startup({
 		})
 
 		use("JoosepAlviste/nvim-ts-context-commentstring")
+
+		use("towolf/vim-helm")
 	end,
 	config = {
 		display = {

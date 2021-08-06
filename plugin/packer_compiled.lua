@@ -168,6 +168,10 @@ _G.packer_plugins = {
     loaded = false,
     needs_bufread = false,
     path = "/home/guillermo/.local/share/nvim/site/pack/packer/opt/telescope.nvim"
+  },
+  ["vim-helm"] = {
+    loaded = true,
+    path = "/home/guillermo/.local/share/nvim/site/pack/packer/start/vim-helm"
   }
 }
 
