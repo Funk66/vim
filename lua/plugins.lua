@@ -4,6 +4,16 @@ packer.startup({
 	function(use)
 		use("wbthomason/packer.nvim")
 
+		use("nvim-lua/plenary.nvim")
+
+		use({
+			"jose-elias-alvarez/null-ls.nvim",
+			requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+			config = function()
+				require("config.null-ls")
+			end,
+		})
+
 		use({
 			"neovim/nvim-lspconfig",
 			config = function()
@@ -26,18 +36,9 @@ packer.startup({
 			end,
 		})
 
-		use({
-			"mhartington/formatter.nvim",
-			config = function()
-				require("config.formatter")
-			end,
-		})
-
 		use("Iron-E/nvim-cartographer")
 
 		use("nvim-lua/popup.nvim")
-
-		use("nvim-lua/plenary.nvim")
 
 		use("tjdevries/astronauta.nvim")
 
