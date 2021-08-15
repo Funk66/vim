@@ -74,47 +74,47 @@ _G.packer_plugins = {
     path = "/home/guillermo/.local/share/nvim/site/pack/packer/start/astronauta.nvim"
   },
   ["barbar.nvim"] = {
-    config = { 'require("config.barbar")' },
+    config = { "\27LJ\1\2-\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\18config.barbar\frequire\0" },
     loaded = true,
     path = "/home/guillermo/.local/share/nvim/site/pack/packer/start/barbar.nvim"
   },
   ["formatter.nvim"] = {
-    config = { 'require("config.formatter")' },
+    config = { "\27LJ\1\0020\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\21config.formatter\frequire\0" },
     loaded = true,
     path = "/home/guillermo/.local/share/nvim/site/pack/packer/start/formatter.nvim"
   },
   ["github-nvim-theme"] = {
-    config = { 'require("github-theme").setup()' },
+    config = { "\27LJ\1\2k\0\0\2\0\4\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\1G\0\1\0\1\0\2\15themeStyle\vdimmed\27hideInactiveStatusline\2\nsetup\17github-theme\frequire\0" },
     loaded = true,
     path = "/home/guillermo/.local/share/nvim/site/pack/packer/start/github-nvim-theme"
   },
   ["gitsigns.nvim"] = {
-    config = { 'require("gitsigns").setup()' },
+    config = { "\27LJ\1\0026\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\nsetup\rgitsigns\frequire\0" },
     loaded = true,
     path = "/home/guillermo/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
   },
   kommentary = {
-    config = { 'require("config.kommentary")' },
+    config = { "\27LJ\1\0021\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\22config.kommentary\frequire\0" },
     loaded = true,
     path = "/home/guillermo/.local/share/nvim/site/pack/packer/start/kommentary"
   },
   ["lspsaga.nvim"] = {
-    config = { 'require("config.lspsaga")' },
+    config = { "\27LJ\1\2.\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\19config.lspsaga\frequire\0" },
     loaded = true,
     path = "/home/guillermo/.local/share/nvim/site/pack/packer/start/lspsaga.nvim"
   },
   ["lualine.nvim"] = {
-    config = { 'require("config.lualine")' },
+    config = { "\27LJ\1\2.\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\19config.lualine\frequire\0" },
     loaded = true,
     path = "/home/guillermo/.local/share/nvim/site/pack/packer/start/lualine.nvim"
   },
   ["neoscroll.nvim"] = {
-    config = { 'require("neoscroll").setup()' },
+    config = { "\27LJ\1\0027\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\nsetup\14neoscroll\frequire\0" },
     loaded = true,
     path = "/home/guillermo/.local/share/nvim/site/pack/packer/start/neoscroll.nvim"
   },
   ["nvim-autopairs"] = {
-    config = { 'require("config.autopairs")' },
+    config = { "\27LJ\1\0020\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\21config.autopairs\frequire\0" },
     loaded = true,
     path = "/home/guillermo/.local/share/nvim/site/pack/packer/start/nvim-autopairs"
   },
@@ -123,22 +123,22 @@ _G.packer_plugins = {
     path = "/home/guillermo/.local/share/nvim/site/pack/packer/start/nvim-cartographer"
   },
   ["nvim-compe"] = {
-    config = { 'require("config.compe")' },
+    config = { "\27LJ\1\2,\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\17config.compe\frequire\0" },
     loaded = true,
     path = "/home/guillermo/.local/share/nvim/site/pack/packer/start/nvim-compe"
   },
   ["nvim-lspconfig"] = {
-    config = { 'require("config.lsp")' },
+    config = { "\27LJ\1\2*\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\15config.lsp\frequire\0" },
     loaded = true,
     path = "/home/guillermo/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
   },
   ["nvim-tree.lua"] = {
-    config = { 'require("config.tree")' },
+    config = { "\27LJ\1\2+\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\16config.tree\frequire\0" },
     loaded = true,
     path = "/home/guillermo/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
-    config = { 'require("config.treesitter")' },
+    config = { "\27LJ\1\0021\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\22config.treesitter\frequire\0" },
     loaded = true,
     path = "/home/guillermo/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
   },
@@ -164,7 +164,7 @@ _G.packer_plugins = {
   },
   ["telescope.nvim"] = {
     commands = { "Telescope" },
-    config = { 'require("config.telescope")' },
+    config = { "\27LJ\1\0020\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\21config.telescope\frequire\0" },
     loaded = false,
     needs_bufread = false,
     path = "/home/guillermo/.local/share/nvim/site/pack/packer/opt/telescope.nvim"
@@ -178,60 +178,60 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Config for: formatter.nvim
 time([[Config for formatter.nvim]], true)
-require("config.formatter")
+try_loadstring("\27LJ\1\0020\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\21config.formatter\frequire\0", "config", "formatter.nvim")
 time([[Config for formatter.nvim]], false)
 -- Config for: nvim-lspconfig
 time([[Config for nvim-lspconfig]], true)
-require("config.lsp")
+try_loadstring("\27LJ\1\2*\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\15config.lsp\frequire\0", "config", "nvim-lspconfig")
 time([[Config for nvim-lspconfig]], false)
 -- Config for: nvim-tree.lua
 time([[Config for nvim-tree.lua]], true)
-require("config.tree")
+try_loadstring("\27LJ\1\2+\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\16config.tree\frequire\0", "config", "nvim-tree.lua")
 time([[Config for nvim-tree.lua]], false)
 -- Config for: barbar.nvim
 time([[Config for barbar.nvim]], true)
-require("config.barbar")
+try_loadstring("\27LJ\1\2-\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\18config.barbar\frequire\0", "config", "barbar.nvim")
 time([[Config for barbar.nvim]], false)
 -- Config for: nvim-compe
 time([[Config for nvim-compe]], true)
-require("config.compe")
+try_loadstring("\27LJ\1\2,\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\17config.compe\frequire\0", "config", "nvim-compe")
 time([[Config for nvim-compe]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
-require("config.treesitter")
+try_loadstring("\27LJ\1\0021\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\22config.treesitter\frequire\0", "config", "nvim-treesitter")
 time([[Config for nvim-treesitter]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
-require("gitsigns").setup()
+try_loadstring("\27LJ\1\0026\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
 time([[Config for gitsigns.nvim]], false)
 -- Config for: lualine.nvim
 time([[Config for lualine.nvim]], true)
-require("config.lualine")
+try_loadstring("\27LJ\1\2.\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\19config.lualine\frequire\0", "config", "lualine.nvim")
 time([[Config for lualine.nvim]], false)
 -- Config for: lspsaga.nvim
 time([[Config for lspsaga.nvim]], true)
-require("config.lspsaga")
+try_loadstring("\27LJ\1\2.\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\19config.lspsaga\frequire\0", "config", "lspsaga.nvim")
 time([[Config for lspsaga.nvim]], false)
 -- Config for: kommentary
 time([[Config for kommentary]], true)
-require("config.kommentary")
+try_loadstring("\27LJ\1\0021\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\22config.kommentary\frequire\0", "config", "kommentary")
 time([[Config for kommentary]], false)
 -- Config for: github-nvim-theme
 time([[Config for github-nvim-theme]], true)
-require("github-theme").setup()
+try_loadstring("\27LJ\1\2k\0\0\2\0\4\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\1G\0\1\0\1\0\2\15themeStyle\vdimmed\27hideInactiveStatusline\2\nsetup\17github-theme\frequire\0", "config", "github-nvim-theme")
 time([[Config for github-nvim-theme]], false)
 -- Config for: nvim-autopairs
 time([[Config for nvim-autopairs]], true)
-require("config.autopairs")
+try_loadstring("\27LJ\1\0020\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\21config.autopairs\frequire\0", "config", "nvim-autopairs")
 time([[Config for nvim-autopairs]], false)
 -- Config for: neoscroll.nvim
 time([[Config for neoscroll.nvim]], true)
-require("neoscroll").setup()
+try_loadstring("\27LJ\1\0027\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\nsetup\14neoscroll\frequire\0", "config", "neoscroll.nvim")
 time([[Config for neoscroll.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Telescope lua require("packer.load")({'telescope.nvim'}, { cmd = "Telescope", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command! -nargs=* -range -bang -complete=file Telescope lua require("packer.load")({'telescope.nvim'}, { cmd = "Telescope", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
 time([[Defining lazy-load commands]], false)
 
 if should_profile then save_profiles() end

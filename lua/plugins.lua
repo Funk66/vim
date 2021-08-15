@@ -5,13 +5,6 @@ packer.startup({
 		use("wbthomason/packer.nvim")
 
 		use({
-			"projekt0n/github-nvim-theme",
-			config = function()
-				require("github-theme").setup()
-			end,
-		})
-
-		use({
 			"neovim/nvim-lspconfig",
 			config = function()
 				require("config.lsp")
@@ -102,6 +95,16 @@ packer.startup({
 			requires = { "kyazdani42/nvim-web-devicons", opt = true },
 			config = function()
 				require("config.lualine")
+			end,
+		})
+
+		use({
+			"projekt0n/github-nvim-theme",
+			config = function()
+				require("github-theme").setup({
+					themeStyle = "dimmed",
+					hideInactiveStatusline = true,
+				})
 			end,
 		})
 
