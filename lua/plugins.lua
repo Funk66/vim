@@ -126,6 +126,15 @@ packer.startup({
 		use("JoosepAlviste/nvim-ts-context-commentstring")
 
 		use("towolf/vim-helm")
+
+		use({
+			"RRethy/vim-illuminate",
+			event = "CursorHold",
+			module = "illuminate",
+			config = function()
+				vim.g.Illuminate_delay = 1000
+			end,
+		})
 	end,
 	config = {
 		display = {
