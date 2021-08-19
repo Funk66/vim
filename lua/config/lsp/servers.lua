@@ -6,6 +6,7 @@ table.insert(runtime_path, "lua/?/init.lua")
 return {
 	bashls = {},
 	dockerls = {},
+	groovyls = {},
 	jedi_language_server = {},
 	tsserver = {},
 	terraformls = {},

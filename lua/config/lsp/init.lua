@@ -3,6 +3,7 @@ local lspconfig = require("lspconfig")
 local illuminate = require("illuminate")
 local servers = require("config.lsp.servers")
 local keymaps = require("config.lsp.mappings")
+local nls = require("config.null-ls")
 
 local on_attach = function(client, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
@@ -31,3 +32,5 @@ for server, config in pairs(servers) do
 		},
 	}, config))
 end
+
+nls.setup(on_attach)
