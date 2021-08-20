@@ -125,14 +125,35 @@ packer.startup({
 
 		use("JoosepAlviste/nvim-ts-context-commentstring")
 
-		use("towolf/vim-helm")
-
 		use({
 			"RRethy/vim-illuminate",
 			event = "CursorHold",
 			module = "illuminate",
 			config = function()
 				vim.g.Illuminate_delay = 1000
+			end,
+		})
+
+		use({
+			"towolf/vim-helm",
+			ft = { "helm" },
+		})
+
+		use({
+			"raimon49/requirements.txt.vim",
+			ft = { "requirements" },
+		})
+
+		use({
+			"plasticboy/vim-markdown",
+			ft = { "markdown" },
+		})
+
+		use({
+			"lukas-reineke/indent-blankline.nvim",
+			requires = { "nvim-treesitter/nvim-treesitter" },
+			config = function()
+				require("config.indent_blankline")
 			end,
 		})
 	end,
