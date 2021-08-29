@@ -7,7 +7,6 @@ return {
 			sources = {
 				nls.builtins.diagnostics.eslint.with({ command = "eslint_d" }),
 				nls.builtins.diagnostics.hadolint,
-				nls.builtins.diagnostics.flake8,
 				nls.builtins.formatting.eslint_d,
 				nls.builtins.formatting.gofmt,
 				nls.builtins.formatting.goimports,
