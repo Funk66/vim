@@ -155,6 +155,13 @@ packer.startup({
 				require("config.indent_blankline")
 			end,
 		})
+
+		use({
+			"simrat39/symbols-outline.nvim",
+			cmd = "SymbolsOutline",
+			config = function()
+			end,
+		})
 	end,
 	config = {
 		display = {
