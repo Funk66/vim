@@ -162,6 +162,11 @@ packer.startup({
 			config = function()
 			end,
 		})
+
+		use({
+			"sindrets/diffview.nvim",
+			cmd = "DiffviewOpen",
+		})
 	end,
 	config = {
 		display = {
