@@ -13,6 +13,7 @@ vim.o.cursorline = true
 vim.o.expandtab = true
 vim.o.foldlevelstart = 99
 vim.o.foldmethod = "indent"
+vim.o.formatoptions = "tcqjor"
 vim.o.hidden = true
 vim.o.ignorecase = true
 vim.o.mouse = "a"

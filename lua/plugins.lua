@@ -100,9 +100,11 @@ packer.startup({
 		})
 
 		use({
-			'EdenEast/nightfox.nvim',
+			"projekt0n/github-nvim-theme",
 			config = function()
-				require('nightfox').set()
+				require("github-theme").setup({
+					hideInactiveStatusline = true,
+				})
 			end,
 		})
 
