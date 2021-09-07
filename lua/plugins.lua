@@ -167,6 +167,14 @@ packer.startup({
 			"sindrets/diffview.nvim",
 			cmd = "DiffviewOpen",
 		})
+
+		use({
+			"ruifm/gitlinker.nvim",
+			requires = "nvim-lua/plenary.nvim",
+			config = function()
+				require("config.gitlinker")
+			end,
+		})
 	end,
 	config = {
 		display = {
