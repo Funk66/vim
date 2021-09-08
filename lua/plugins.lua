@@ -22,13 +22,6 @@ packer.startup({
 		})
 
 		use({
-			"glepnir/lspsaga.nvim",
-			config = function()
-				require("config.lspsaga")
-			end,
-		})
-
-		use({
 			"nvim-treesitter/nvim-treesitter",
 			run = ":TSUpdate",
 			config = function()
@@ -44,7 +37,7 @@ packer.startup({
 
 		use({
 			"nvim-telescope/telescope.nvim",
-			requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
+			requires = { "nvim-lua/popup.nvim", "nvim-lua/plenary.nvim" },
 			config = function()
 				require("config.telescope")
 			end,
@@ -159,8 +152,6 @@ packer.startup({
 		use({
 			"simrat39/symbols-outline.nvim",
 			cmd = "SymbolsOutline",
-			config = function()
-			end,
 		})
 
 		use({
