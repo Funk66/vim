@@ -93,11 +93,9 @@ packer.startup({
 		})
 
 		use({
-			"projekt0n/github-nvim-theme",
+			"Pocco81/Catppuccino.nvim",
 			config = function()
-				require("github-theme").setup({
-					hideInactiveStatusline = true,
-				})
+				require("config.catppuccino")
 			end,
 		})
 
