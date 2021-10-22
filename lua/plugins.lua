@@ -107,13 +107,6 @@ packer.startup({
 			end,
 		})
 
-		use({
-			"karb94/neoscroll.nvim",
-			config = function()
-				require("neoscroll").setup()
-			end,
-		})
-
 		use("JoosepAlviste/nvim-ts-context-commentstring")
 
 		use({
