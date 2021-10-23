@@ -24,3 +24,6 @@ key["<A-g>"] = ":Telescope grep_string<CR>"
 key["<A-s>"] = ":Telescope live_grep<CR>"
 
 key["<A-p>"] = ":SymbolsOutline<CR>"
+
+key[",gd"] = ":DiffviewOpen<CR>"
+key[",gc"] = ":DiffviewClose<CR>"

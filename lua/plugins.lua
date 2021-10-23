@@ -148,7 +148,10 @@ packer.startup({
 
 		use({
 			"sindrets/diffview.nvim",
-			cmd = "DiffviewOpen",
+			cmd = {"DiffviewOpen", "DiffviewFileHistory"},
+			config = function()
+				require("config.diffview")
+			end
 		})
 
 		use({
