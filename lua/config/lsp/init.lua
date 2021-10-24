@@ -2,6 +2,7 @@ require("config.lsp.ui")
 local illuminate = require("illuminate")
 local lsp_installer = require("nvim-lsp-installer")
 local keymaps = require("config.lsp.mappings")
+local servers = require("config.lsp.servers")
 local nls = require("config.null-ls")
 
 local on_attach = function(client, bufnr)
@@ -25,16 +26,21 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 }
 
 lsp_installer.on_server_ready(function(server)
-    vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-        signs = false,
-    })
-	server:setup({
+	vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+		signs = false,
+		severity_sort = true,
+	})
+	local opts = {
 		on_attach = on_attach,
 		capabilities = capabilities,
 		flags = {
 			debounce_text_changes = 300,
 		},
-	})
+	}
+	if servers[server] ~= nil then
+		vim.tbl_deep_extend(opts, servers[server])
+	end
+	server:setup(opts)
 	vim.cmd([[ do User LspAttachBuffers ]])
 end)
 
