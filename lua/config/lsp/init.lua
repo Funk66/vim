@@ -37,8 +37,8 @@ lsp_installer.on_server_ready(function(server)
 			debounce_text_changes = 300,
 		},
 	}
-	if servers[server] ~= nil then
-		vim.tbl_deep_extend(opts, servers[server])
+	if servers[server.name] ~= nil then
+		opts = vim.tbl_deep_extend('force', opts, servers[server.name])
 	end
 	server:setup(opts)
 	vim.cmd([[ do User LspAttachBuffers ]])

@@ -11,10 +11,8 @@ M.setup = function()
 
 	vim.g.nvim_tree_git_hl = 1
 	vim.g.nvim_tree_gitignore = 1
-	vim.g.nvim_tree_hide_dotfiles = 1
 	vim.g.nvim_tree_highlight_opened_files = 1
 	vim.g.nvim_tree_indent_markers = 1
-	vim.g.nvim_tree_ignore = { ".git", "node_modules", ".cache" }
 	vim.g.nvim_tree_show_icons = {
 		git = 0,
 		folders = 1,
@@ -24,6 +22,9 @@ M.setup = function()
 
 	tree.setup({
 		auto_close = true,
+		filters = {
+			dotfiles = false,
+		},
 		update_focused_file = {
 			enable = true,
 			update_cwv = true,

@@ -1,4 +1,20 @@
 return {
+	sumneko_lua = {
+		settings = {
+			Lua = {
+				diagnostics = {
+					globals = { "vim" },
+				},
+				workspace = {
+					library = {
+						[vim.fn.expand("$VIMRUNTIME/lua")] = true,
+						[vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
+					},
+					maxPreload = 10000,
+				},
+			},
+		},
+	},
 	yamlls = {
 		settings = {
 			yaml = {
@@ -11,7 +27,7 @@ return {
 					["https://raw.githubusercontent.com/awslabs/goformation/v5.2.11/schema/sam.schema.json"] = "/sam/*.y*ml",
 				},
 			},
-		}
+		},
 	},
 	jsonls = {
 		settings = {
@@ -23,6 +39,6 @@ return {
 					},
 				},
 			},
-		}
-	}
+		},
+	},
 }
