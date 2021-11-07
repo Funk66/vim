@@ -1,6 +1,8 @@
 local map = require("cartographer")
 local key = map.n.nore.silent
 
+vim.cmd("command! LspUpdate LspInstall sumneko_lua tsserver bashls dockerls tailwindcss yamlls jsonls pylsp")
+
 key["<C-h>"] = "<C-w>h"
 key["<C-j>"] = "<C-w>j"
 key["<C-k>"] = "<C-w>k"
