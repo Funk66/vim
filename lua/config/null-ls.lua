@@ -35,7 +35,6 @@ return {
 				nls.builtins.formatting.gofmt,
 				nls.builtins.formatting.goimports,
 				nls.builtins.formatting.isort,
-				nls.builtins.formatting.json_tool,
 				nls.builtins.formatting.prettierd,
 				nls.builtins.formatting.shfmt,
 				nls.builtins.formatting.sqlformat,

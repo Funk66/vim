@@ -4,6 +4,7 @@ local lsp_installer = require("nvim-lsp-installer")
 local keymaps = require("config.lsp.mappings")
 local servers = require("config.lsp.servers")
 local nls = require("config.null-ls")
+local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 local on_attach = function(client, bufnr)
 	vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
@@ -18,13 +19,14 @@ local on_attach = function(client, bufnr)
 		illuminate.on_attach(client)
 	end
 
-	if client.name == "tsserver" or client.name == "pylsp" then
+	if client.name == "tsserver" then
         client.resolved_capabilities.document_formatting = false
         client.resolved_capabilities.document_range_formatting = false
 	end
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.textDocument.completion.completionItem.resolveSupport = {
 	properties = { "documentation", "detail", "additionalTextEdits" },

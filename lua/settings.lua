@@ -6,7 +6,7 @@ vim.g.mapleader = ","
 vim.g.python3_host_prog = "/usr/bin/python"
 
 vim.o.clipboard = "unnamedplus"
-vim.o.completeopt = "menuone,noselect"
+vim.o.completeopt = "menu,menuone,noselect"
 vim.o.conceallevel = 2
 vim.o.confirm = true
 vim.o.cursorline = true
