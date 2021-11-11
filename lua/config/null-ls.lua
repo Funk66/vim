@@ -29,6 +29,7 @@ return {
 				nls.builtins.diagnostics.eslint.with({ command = "eslint_d" }),
 				nls.builtins.diagnostics.flake8.with(flake8),
 				nls.builtins.diagnostics.hadolint,
+				nls.builtins.diagnostics.mypy,
 				nls.builtins.formatting.black.with(black),
 				nls.builtins.formatting.eslint_d,
 				nls.builtins.formatting.gofmt,
