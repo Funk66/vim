@@ -4,8 +4,6 @@ packer.startup({
 	function(use)
 		use("wbthomason/packer.nvim")
 
-		use("nvim-lua/plenary.nvim")
-
 		use({
 			"jose-elias-alvarez/null-ls.nvim",
 			requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
@@ -32,8 +30,6 @@ packer.startup({
 
 		use("Iron-E/nvim-cartographer")
 
-		use("nvim-lua/popup.nvim")
-
 		use("tjdevries/astronauta.nvim")
 
 		use({
@@ -52,8 +48,6 @@ packer.startup({
 				require("gitsigns").setup()
 			end,
 		})
-
-		use("kyazdani42/nvim-web-devicons")
 
 		use({
 			"romgrk/barbar.nvim",
