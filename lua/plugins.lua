@@ -81,9 +81,9 @@ packer.startup({
 		})
 
 		use({
-			"Pocco81/Catppuccino.nvim",
+			"projekt0n/github-nvim-theme",
 			config = function()
-				require("config.catppuccino")
+				require("config.github-nvim-theme")
 			end,
 		})
 
