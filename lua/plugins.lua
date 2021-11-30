@@ -145,7 +145,7 @@ packer.startup({
 			"ruifm/gitlinker.nvim",
 			requires = "nvim-lua/plenary.nvim",
 			config = function()
-				require("config.gitlinker")
+				require("gitlinker").setup()
 			end,
 		})
 
