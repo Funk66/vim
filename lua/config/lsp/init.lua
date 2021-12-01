@@ -19,7 +19,7 @@ local on_attach = function(client, bufnr)
 		illuminate.on_attach(client)
 	end
 
-	if client.name == "tsserver" then
+	if client.name == "tsserver" or client.name == "gopls" then
         client.resolved_capabilities.document_formatting = false
         client.resolved_capabilities.document_range_formatting = false
 	end

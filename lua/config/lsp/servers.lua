@@ -32,8 +32,8 @@ return {
 					["https://json.schemastore.org/kustomization.json"] = "*/kustomization.yaml",
 					["https://raw.githubusercontent.com/awslabs/goformation/v5.2.11/schema/sam.schema.json"] = "/sam/*.{yml,yaml}",
 					["https://raw.githubusercontent.com/awslabs/goformation/v5.2.11/schema/cloudformation.schema.json"] = {
-						"/template.y*ml",
-						"/templates/*.y*ml",
+						"/template.{yml,yaml}",
+						"/templates/*.{yml,yaml}",
 					},
 				},
 			},
