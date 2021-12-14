@@ -1,5 +1,6 @@
 local nls = require("null-ls")
 local lspconfig = require("lspconfig")
+local utils = require("utils")
 
 local black = {
 	extra_args = function(params)
@@ -7,29 +8,61 @@ local black = {
 	end,
 }
 
-local flake8 = {
-	args = function(params)
-		return {
-			"--format",
-			"default",
-			"--config",
-			params.bufname:match("kialo") and os.getenv("KIALO_ROOT") .. "/backend/.flake8" or ".flake8",
-			"--stdin-display-name",
-			"$FILENAME",
-			"-",
-		}
-	end,
+local config = {
+	flake8 = {
+		args = function(params)
+			local args = {
+				"--format",
+				"default",
+				"--stdin-display-name",
+				"$FILENAME",
+				"-",
+			}
+			if params.bufname:match("kialo") then
+				table.insert(args, 1, "--config=" .. os.getenv("KIALO_ROOT") .. "/backend/.flake8")
+			end
+			return args
+		end,
+	},
+	mypy = {
+		args = function(params)
+			local mypy_config_file = params.root .. ".mypy.ini"
+			if params.bufname:match("kialo") then
+				mypy_config_file = os.getenv("KIALO_ROOT") .. "/backend/mypy.ini"
+			elseif not utils.file_exists(mypy_config_file) then
+				mypy_config_file = nil
+			end
+
+			local args = {
+				"--hide-error-codes",
+				"--hide-error-context",
+				"--no-color-output",
+				"--show-column-numbers",
+				"--show-error-codes",
+				"--no-error-summary",
+				"--no-pretty",
+				"--command",
+				"$TEXT",
+			}
+
+			if mypy_config_file then
+				table.insert(args, 1, "--config-file " .. mypy_config_file)
+			end
+			return args
+		end,
+	},
 }
 
 return {
 	setup = function(on_attach)
 		nls.config({
+			debug = true,
 			sources = {
 				nls.builtins.code_actions.gitsigns,
 				nls.builtins.diagnostics.eslint.with({ command = "eslint_d" }),
-				nls.builtins.diagnostics.flake8.with(flake8),
+				nls.builtins.diagnostics.flake8.with(config.flake8),
 				nls.builtins.diagnostics.hadolint,
-				nls.builtins.diagnostics.mypy,
+				nls.builtins.diagnostics.mypy.with(config.mypy),
 				nls.builtins.formatting.black.with(black),
 				nls.builtins.formatting.eslint_d,
 				nls.builtins.formatting.gofmt,

@@ -31,10 +31,10 @@ return {
 					["https://json.schemastore.org/pre-commit-config.json"] = "/.pre-commit-config.yaml",
 					["https://json.schemastore.org/kustomization.json"] = "*/kustomization.yaml",
 					["https://raw.githubusercontent.com/awslabs/goformation/v5.2.11/schema/sam.schema.json"] = "/sam/*.{yml,yaml}",
-					["https://raw.githubusercontent.com/awslabs/goformation/v5.2.11/schema/cloudformation.schema.json"] = {
+					--[[ ["https://raw.githubusercontent.com/awslabs/goformation/v5.2.11/schema/cloudformation.schema.json"] = {
 						"/template.{yml,yaml}",
 						"/templates/*.{yml,yaml}",
-					},
+					}, ]]
 				},
 			},
 		},

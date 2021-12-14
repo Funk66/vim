@@ -3,7 +3,7 @@ return {
 	["gd"] = "<Cmd>lua vim.lsp.buf.definition()<CR>",
 	["K"] = "<Cmd>lua vim.lsp.buf.hover()<CR>",
 	["gi"] = "<cmd>lua vim.lsp.buf.implementation()<CR>",
-	["<C-k>"] = "<cmd>lua vim.lsp.buf.signature_help()<CR>",
+	-- ["<C-k>"] = "<cmd>lua vim.lsp.buf.signature_help()<CR>",
 	["<space>wa"] = "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>",
 	["<space>wr"] = "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>",
 	["<space>wl"] = "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>",

@@ -3,7 +3,7 @@ CACHE_PATH = vim.fn.stdpath("cache")
 vim.cmd("filetype plugin on")
 
 vim.g.mapleader = ","
-vim.g.python3_host_prog = "/usr/bin/python"
+vim.g.python3_host_prog = "/usr/local/bin/python3"
 
 vim.o.clipboard = "unnamedplus"
 vim.o.completeopt = "menu,menuone,noselect"
