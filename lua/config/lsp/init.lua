@@ -3,7 +3,6 @@ local illuminate = require("illuminate")
 local lsp_installer = require("nvim-lsp-installer")
 local keymaps = require("config.lsp.mappings")
 local servers = require("config.lsp.servers")
-local nls = require("config.null-ls")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 local on_attach = function(client, bufnr)
@@ -51,4 +50,4 @@ lsp_installer.on_server_ready(function(server)
 	vim.cmd([[ do User LspAttachBuffers ]])
 end)
 
-nls.setup(on_attach)
+return {on_attach = on_attach}
