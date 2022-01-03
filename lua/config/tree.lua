@@ -10,7 +10,6 @@ M.setup = function()
 	key["<A-u>"] = ":NvimTreeRefresh<CR>"
 
 	vim.g.nvim_tree_git_hl = 1
-	vim.g.nvim_tree_gitignore = 1
 	vim.g.nvim_tree_highlight_opened_files = 1
 	vim.g.nvim_tree_indent_markers = 1
 	vim.g.nvim_tree_show_icons = {
@@ -28,6 +27,9 @@ M.setup = function()
 		update_focused_file = {
 			enable = true,
 			update_cwv = true,
+		},
+		git = {
+			ignore = true,
 		},
 		view = {
 			mappings = {
