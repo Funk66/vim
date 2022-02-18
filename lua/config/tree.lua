@@ -21,15 +21,10 @@ M.setup = function()
 
 	tree.setup({
 		auto_close = true,
-		filters = {
-			dotfiles = false,
-		},
+		update_cwd = true,
 		update_focused_file = {
 			enable = true,
 			update_cwv = true,
-		},
-		git = {
-			ignore = true,
 		},
 		view = {
 			mappings = {
@@ -47,7 +42,7 @@ M.toggle = function()
 	local state = require("bufferline.state")
 
 	if view.win_open() then
-		tree.close()
+		view.close()
 		state.set_offset(0)
 	else
 		tree.open()
