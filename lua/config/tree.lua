@@ -41,7 +41,7 @@ M.toggle = function()
 	local view = require("nvim-tree.view")
 	local state = require("bufferline.state")
 
-	if view.win_open() then
+	if view.is_visible() then
 		view.close()
 		state.set_offset(0)
 	else
@@ -54,4 +54,5 @@ M.toggle = function()
 		end
 	end
 end
+
 return M
