@@ -164,6 +164,8 @@ packer.startup({
 				require("config.cmp")
 			end,
 		})
+
+		use("tpope/vim-fugitive")
 	end,
 	config = {
 		display = {
