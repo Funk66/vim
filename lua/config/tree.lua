@@ -20,7 +20,6 @@ M.setup = function()
 	}
 
 	tree.setup({
-		auto_close = true,
 		update_cwd = true,
 		update_focused_file = {
 			enable = true,
@@ -54,5 +53,8 @@ M.toggle = function()
 		end
 	end
 end
+
+-- Auto-close on exit
+vim.cmd("autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif")
 
 return M
