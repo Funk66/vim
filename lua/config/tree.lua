@@ -11,7 +11,6 @@ M.setup = function()
 
 	vim.g.nvim_tree_git_hl = 1
 	vim.g.nvim_tree_highlight_opened_files = 1
-	vim.g.nvim_tree_indent_markers = 1
 	vim.g.nvim_tree_show_icons = {
 		git = 0,
 		folders = 1,
@@ -24,6 +23,9 @@ M.setup = function()
 		update_focused_file = {
 			enable = true,
 			update_cwv = true,
+		},
+		renderer = {
+			indent_markers = { enable = true },
 		},
 		view = {
 			mappings = {

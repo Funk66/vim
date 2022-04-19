@@ -1,7 +1,7 @@
 local treesitter = require("nvim-treesitter.configs")
 
 treesitter.setup({
-	ensure_installed = "maintained",
+	ensure_installed = { "bash", "css", "dockerfile", "go", "hcl", "html", "javascript", "json", "json5", "lua", "pug", "python", "regex", "rego", "typescript", "yaml"},
 	highlight = { enable = true, use_languagetree = true },
 	indent = { enable = true },
 	context_commentstring = { enable = true, enable_autocmd = false },
