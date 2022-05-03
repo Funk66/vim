@@ -1,31 +1,28 @@
-local map = require("cartographer")
-local key = map.n.nore.silent
+vim.cmd(
+	"command! LspUpdate LspInstall sumneko_lua tsserver bashls dockerls tailwindcss yamlls jsonls jedi_language_server gopls html terraformls"
+)
 
-vim.cmd("command! LspUpdate LspInstall sumneko_lua tsserver bashls dockerls tailwindcss yamlls jsonls jedi_language_server gopls html terraformls")
+vim.keymap.set("n", "<C-h>", "<C-w>h")
+vim.keymap.set("n", "<C-j>", "<C-w>j")
+vim.keymap.set("n", "<C-k>", "<C-w>k")
+vim.keymap.set("n", "<C-l>", "<C-w>l")
 
-key["<C-h>"] = "<C-w>h"
-key["<C-j>"] = "<C-w>j"
-key["<C-k>"] = "<C-w>k"
-key["<C-l>"] = "<C-w>l"
+vim.keymap.set("n", "<C-Up>", ":resize -2<CR>")
+vim.keymap.set("n", "<C-Down>", ":resize +2<CR>")
+vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>")
+vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>")
 
-key["<C-Up>"] = ":resize -2<CR>"
-key["<C-Down>"] = ":resize +2<CR>"
-key["<C-Left>"] = ":vertical resize -2<CR>"
-key["<C-Right>"] = ":vertical resize +2<CR>"
+vim.keymap.set({ "n", "i" }, "<PageDown>", "<Nop>")
+vim.keymap.set({ "n", "i" }, "<PageUp>", "<Nop>")
 
-key["<PageDown>"] = "<Nop>"
-key["<PageUp>"] = "<Nop>"
-map.i.silent["<PageDown>"] = "<Nop>"
-map.i.silent["<PageUp>"] = "<Nop>"
+vim.keymap.set("n", "<A-q>", ":quit<CR>")
+vim.keymap.set("n", "<A-w>", ":write<CR>")
 
-key["<A-q>"] = ":quit<CR>"
-key["<A-w>"] = ":write<CR>"
+vim.keymap.set("n", "<A-f>", ":Telescope find_files<CR>")
+vim.keymap.set("n", "<A-g>", ":Telescope grep_string<CR>")
+vim.keymap.set("n", "<A-s>", ":Telescope live_grep<CR>")
 
-key["<A-f>"] = ":Telescope find_files<CR>"
-key["<A-g>"] = ":Telescope grep_string<CR>"
-key["<A-s>"] = ":Telescope live_grep<CR>"
+vim.keymap.set("n", "<A-p>", ":SymbolsOutline<CR>")
 
-key["<A-p>"] = ":SymbolsOutline<CR>"
-
-key[",gd"] = ":DiffviewOpen<CR>"
-key[",gc"] = ":DiffviewClose<CR>"
+vim.keymap.set("n", ",gd", ":DiffviewOpen<CR>")
+vim.keymap.set("n", ",gc", ":DiffviewClose<CR>")

@@ -30,8 +30,6 @@ packer.startup({
 
 		use("Iron-E/nvim-cartographer")
 
-		use("tjdevries/astronauta.nvim")
-
 		use({
 			"nvim-telescope/telescope.nvim",
 			requires = { "nvim-lua/popup.nvim", "nvim-lua/plenary.nvim" },
