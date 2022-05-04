@@ -15,6 +15,7 @@ gitsigns.setup({
 		key['<leader>hS'] = gitsigns.stage_buffer
 		key['<leader>hu'] = gitsigns.undo_stage_hunk
 		key['<leader>hR'] = gitsigns.reset_buffer
+		key['<leader>hr'] = gitsigns.reset_hunk
 		key['<leader>hp'] = gitsigns.preview_hunk
 		key['<leader>hb'] = function()
 			gitsigns.blame_line({ full = true })

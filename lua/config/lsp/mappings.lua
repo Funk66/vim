@@ -11,9 +11,9 @@ return {
 	["<space>rn"] = "<cmd>lua vim.lsp.buf.rename()<CR>",
 	["<space>ca"] = "<cmd>lua vim.lsp.buf.code_action()<CR>",
 	["gr"] = "<cmd>lua vim.lsp.buf.references()<CR>",
-	["<space>e"] = "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = 'single' })<CR>",
-	["[d"] = "<cmd>lua vim.lsp.diagnostic.goto_prev({popup_opts = { boder = 'single' } })<CR>",
-	["]d"] = "<cmd>lua vim.lsp.diagnostic.goto_next({popup_opts = { boder = 'single' } })<CR>",
-	["<space>q"] = "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>",
+	["<space>e"] = "<cmd>lua vim.diagnostic.open_float(0, {scope='line'})<CR>",
+	["[d"] = "<cmd>lua vim.diagnostic.goto_prev()<CR>",
+	["]d"] = "<cmd>lua vim.diagnostic.goto_next()<CR>",
+	["<space>q"] = "<cmd>lua vim.diagnostic.setloclist()<CR>",
 	["<leader>f"] = "<cmd>lua vim.lsp.buf.formatting()<CR>",
 }

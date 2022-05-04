@@ -22,7 +22,7 @@ M.setup = function()
 		update_cwd = true,
 		update_focused_file = {
 			enable = true,
-			update_cwv = true,
+			update_cwd = true,
 		},
 		renderer = {
 			indent_markers = { enable = true },
