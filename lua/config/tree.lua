@@ -9,15 +9,6 @@ M.setup = function()
 	key["<A-i>"] = ":NvimTreeFindFile<CR>"
 	key["<A-u>"] = ":NvimTreeRefresh<CR>"
 
-	vim.g.nvim_tree_git_hl = 1
-	vim.g.nvim_tree_highlight_opened_files = 1
-	vim.g.nvim_tree_show_icons = {
-		git = 0,
-		folders = 1,
-		files = 1,
-		folder_arrows = 0,
-	}
-
 	tree.setup({
 		update_cwd = true,
 		update_focused_file = {
@@ -26,6 +17,11 @@ M.setup = function()
 		},
 		renderer = {
 			indent_markers = { enable = true },
+			highlight_git = true,
+			highlight_opened_files = "name",
+			icons = {
+				git_placement = "after"
+			},
 		},
 		view = {
 			mappings = {
