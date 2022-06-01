@@ -164,6 +164,11 @@ packer.startup({
 		})
 
 		use("tpope/vim-fugitive")
+
+		use({
+			"rcarriga/nvim-notify",
+			requires = { "nvim-telescope/telescope.nvim" },
+		})
 	end,
 	config = {
 		display = {
