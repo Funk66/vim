@@ -13,15 +13,15 @@ vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 
 return {
   "akinsho/toggleterm.nvim",
-  event = "BufWinEnter",
+  cmd = { "ToggleTerm", "ToggleTermSendCurrentLine", "ToggleTermSendVisualLines", "ToggleTermSendVisualSelection" },
   version = "*",
   config = true,
   keys = {
-    { "<A-1>", ":ToggleTerm direction=float<cr>", desc = "Toggle float term" },
-    { "<A-2>", ":ToggleTerm direction=horizontal size=10<cr>", desc = "Toggle horizontal term" },
-    { "<A-3>", ":ToggleTerm direction=vertical size=60<cr>", desc = "Toggle vertical term" },
-    { "<leader>tl", ":ToggleTermSendCurrentLine <T_ID><cr>", desc = "Term send line" },
-    { "<leader>tL", ":ToggleTermSendVisualLines <T_ID><cr>", desc = "Term send lines" },
-    { "<leader>ts", ":ToggleTermSendVisualSelection <T_ID><cr>", desc = "Term send selection" },
+    { "<A-1>", ":ToggleTerm direction=float<cr>", desc = "Toggle float term", silent = true },
+    { "<A-2>", ":ToggleTerm direction=horizontal size=10<cr>", desc = "Toggle horizontal term", silent = true },
+    { "<A-3>", ":ToggleTerm direction=vertical size=60<cr>", desc = "Toggle vertical term", silent = true },
+    { "<leader>tl", ":ToggleTermSendCurrentLine <T_ID><cr>", desc = "Term send line", silent = true },
+    { "<leader>tL", ":ToggleTermSendVisualLines <T_ID><cr>", desc = "Term send lines", silent = true },
+    { "<leader>ts", ":ToggleTermSendVisualSelection <T_ID><cr>", desc = "Term send selection", silent = true },
   },
 }
