@@ -20,6 +20,7 @@ return {
       "mypy",
       "prettier",
       "pyright",
+      "ruff-lsp",
       "rust-analyzer",
       "shellcheck",
       "shfmt",

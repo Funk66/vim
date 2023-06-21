@@ -14,6 +14,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.linting.eslint" },
     { import = "lazyvim.plugins.extras.coding.copilot" },
     { import = "plugins" },
+    { "Glench/Vim-Jinja2-Syntax" },
   },
   defaults = {
     lazy = false,

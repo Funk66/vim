@@ -4,20 +4,6 @@ local black = {
   end,
 }
 
-local flake8 = {
-  args = function(params)
-    return {
-      "--format",
-      "default",
-      "--config",
-      params.bufname:match("kialo") and os.getenv("KIALO_ROOT") .. "/backend/.flake8" or ".flake8",
-      "--stdin-display-name",
-      "$FILENAME",
-      "-",
-    }
-  end,
-}
-
 return {
   "jose-elias-alvarez/null-ls.nvim",
   opts = function()
@@ -27,7 +13,6 @@ return {
       sources = {
         nls.builtins.code_actions.gitsigns,
         nls.builtins.diagnostics.eslint.with({ command = "eslint_d" }),
-        nls.builtins.diagnostics.flake8.with(flake8),
         nls.builtins.diagnostics.hadolint,
         nls.builtins.diagnostics.mypy,
         nls.builtins.formatting.black.with(black),
