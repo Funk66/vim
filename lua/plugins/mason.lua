@@ -29,7 +29,6 @@ return {
       "stylua",
       "tailwindcss-language-server",
       "taplo",
-      "terraform-ls",
       "typescript-language-server",
       "vim-language-server",
       "yaml-language-server",
