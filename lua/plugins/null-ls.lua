@@ -7,7 +7,9 @@ local black = {
 local mypy = {
   extra_args = function(params)
     local python_path = os.getenv("VIRTUAL_ENV") or "/usr"
-    return params.bufname:match("kialo") and { "--config-file", "backend/mypy.ini", "--python-executable", python_path .. "/bin/python3"} or {}
+    return params.bufname:match("kialo")
+        and { "--config-file", "backend/mypy.ini", "--python-executable", python_path .. "/bin/python3" }
+      or {}
   end,
 }
 
@@ -25,6 +27,7 @@ return {
       root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", "Makefile", ".git"),
       sources = {
         nls.builtins.code_actions.gitsigns,
+        nls.builtins.diagnostics.actionlint,
         nls.builtins.diagnostics.eslint.with({ command = "eslint_d" }),
         nls.builtins.diagnostics.mypy.with(mypy),
         nls.builtins.formatting.black.with(black),
