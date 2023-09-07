@@ -41,4 +41,7 @@ require("lazy").setup({
       },
     },
   },
+  dev = {
+    path = "~/Workspace/funk66",
+  },
 })
