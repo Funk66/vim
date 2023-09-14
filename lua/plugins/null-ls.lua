@@ -5,16 +5,22 @@ local black = {
 }
 
 local mypy = {
-  extra_args = function(params)
-    return params.bufname:match("kialo")
-        and {
-          "--config-file",
-          params.root .. "/backend/mypy.ini",
-          "--python-executable",
-          os.getenv("VIRTUAL_ENV") .. "/bin/python3",
-        }
-      or {}
+  cwd = function(params)
+    if params.bufname:match("kialo/kialo") then
+      return params.root .. "/backend"
+    end
   end,
+  extra_args = function(params)
+    if params.bufname:match("kialo/kialo") then
+      return {
+        "--config-file",
+        "mypy.ini",
+        "--python-executable",
+        os.getenv("VIRTUAL_ENV") .. "/bin/python3",
+      }
+    end
+  end,
+  timeout = 30000,
 }
 
 local isort = {
