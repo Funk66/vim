@@ -18,7 +18,7 @@ return {
   config = true,
   keys = {
     { "<A-1>", ":ToggleTerm direction=float<cr>", desc = "Toggle float term", silent = true },
-    { "<A-2>", ":ToggleTerm direction=horizontal size=10<cr>", desc = "Toggle horizontal term", silent = true },
+    { "<A-2>", ":ToggleTerm direction=horizontal size=30<cr>", desc = "Toggle horizontal term", silent = true },
     { "<A-3>", ":ToggleTerm direction=vertical size=60<cr>", desc = "Toggle vertical term", silent = true },
     { "<leader>tl", ":ToggleTermSendCurrentLine <T_ID><cr>", desc = "Term send line", silent = true },
     { "<leader>tL", ":ToggleTermSendVisualLines <T_ID><cr>", desc = "Term send lines", silent = true, mode = { "v" } },
