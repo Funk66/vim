@@ -18,6 +18,11 @@ local mypy = {
         "--python-executable",
         os.getenv("VIRTUAL_ENV") .. "/bin/python3",
       }
+    elseif params.bufname:match("kialo/k8s--resources") then
+      return {
+        "--python-executable",
+        os.getenv("VIRTUAL_ENV") .. "/bin/python3",
+      }
     end
   end,
   timeout = 30000,
