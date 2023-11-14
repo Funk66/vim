@@ -46,7 +46,7 @@ return {
       nls.builtins.formatting.black.with(black),
       nls.builtins.formatting.eslint_d,
       nls.builtins.formatting.isort.with(isort),
-      nls.builtins.formatting.sqlformat,
+      nls.builtins.formatting.sqlfmt,
     })
   end,
 }
