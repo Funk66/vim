@@ -1,9 +1,3 @@
-local black = {
-  extra_args = function(params)
-    return params.bufname:match("kialo") and { "-l 120" } or {}
-  end,
-}
-
 local mypy = {
   cwd = function(params)
     if params.bufname:match("kialo/kialo") then
@@ -43,7 +37,7 @@ return {
       nls.builtins.diagnostics.actionlint,
       nls.builtins.diagnostics.eslint.with({ command = "eslint_d" }),
       nls.builtins.diagnostics.mypy.with(mypy),
-      nls.builtins.formatting.black.with(black),
+      nls.builtins.formatting.black,
       nls.builtins.formatting.eslint_d,
       nls.builtins.formatting.isort.with(isort),
       nls.builtins.formatting.sqlfmt,
