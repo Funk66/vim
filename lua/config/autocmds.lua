@@ -5,3 +5,9 @@ vim.api.nvim_create_autocmd("FileType", {
     require("persistence").stop()
   end,
 })
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "sh" },
+  callback = function()
+    vim.b.autoformat = false
+  end,
+})
