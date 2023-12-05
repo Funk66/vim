@@ -10,6 +10,7 @@ return {
       "deno",
       "dockerfile-language-server",
       "flake8",
+      "hadolint",
       "html-lsp",
       "intelephense",
       "isort",
