@@ -1,31 +1,14 @@
 local mypy = {
-  cwd = function(params)
-    if params.bufname:match("kialo/kialo") then
-      return params.root .. "/backend"
-    end
-  end,
-  extra_args = function(params)
-    if params.bufname:match("kialo/kialo") then
-      return {
-        "--config-file",
-        "mypy.ini",
-        "--python-executable",
-        os.getenv("VIRTUAL_ENV") .. "/bin/python3",
-      }
-    elseif params.bufname:match("kialo/k8s--resources") then
+  extra_args = function()
+    local venv = os.getenv("VIRTUAL_ENV")
+    if venv then
       return {
         "--python-executable",
-        os.getenv("VIRTUAL_ENV") .. "/bin/python3",
+        venv .. "/bin/python3",
       }
     end
   end,
   timeout = 30000,
-}
-
-local isort = {
-  extra_args = function(params)
-    return params.bufname:match("kialo") and { "--settings-path", "backend/.isort.cfg" } or {}
-  end,
 }
 
 return {
@@ -39,7 +22,7 @@ return {
       nls.builtins.diagnostics.mypy.with(mypy),
       nls.builtins.formatting.black,
       nls.builtins.formatting.eslint_d,
-      nls.builtins.formatting.isort.with(isort),
+      nls.builtins.formatting.isort,
       nls.builtins.formatting.sqlfmt,
     })
   end,
