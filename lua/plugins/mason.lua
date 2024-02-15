@@ -4,7 +4,6 @@ return {
     ensure_installed = {
       "actionlint",
       "bash-language-server",
-      "black",
       "css-lsp",
       "debugpy",
       "deno",
@@ -13,7 +12,6 @@ return {
       "hadolint",
       "html-lsp",
       "intelephense",
-      "isort",
       "jedi-language-server",
       "json-lsp",
       "lemminx",

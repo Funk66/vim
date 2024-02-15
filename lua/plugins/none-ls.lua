@@ -20,9 +20,7 @@ return {
       nls.builtins.diagnostics.actionlint,
       nls.builtins.diagnostics.eslint.with({ command = "eslint_d" }),
       nls.builtins.diagnostics.mypy.with(mypy),
-      nls.builtins.formatting.black,
       nls.builtins.formatting.eslint_d,
-      nls.builtins.formatting.isort,
       nls.builtins.formatting.sqlfmt,
     })
   end,
