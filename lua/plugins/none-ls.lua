@@ -18,9 +18,7 @@ return {
     vim.list_extend(opts.sources, {
       nls.builtins.code_actions.gitsigns,
       nls.builtins.diagnostics.actionlint,
-      nls.builtins.diagnostics.eslint.with({ command = "eslint_d" }),
       nls.builtins.diagnostics.mypy.with(mypy),
-      nls.builtins.formatting.eslint_d,
       nls.builtins.formatting.sqlfmt,
     })
   end,

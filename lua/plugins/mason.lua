@@ -4,6 +4,7 @@ return {
     ensure_installed = {
       "actionlint",
       "bash-language-server",
+      "biome",
       "css-lsp",
       "debugpy",
       "deno",
