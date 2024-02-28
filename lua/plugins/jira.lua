@@ -1,8 +1,6 @@
 return {
   "Funk66/jira.nvim",
-  dependencies = {
-    { "jcdickinson/http.nvim", build = "cargo build --workspace --release" },
-  },
+  dependencies = { "nvim-lua/plenary.nvim" },
   config = function()
     require("jira").setup()
   end,
