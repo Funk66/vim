@@ -21,7 +21,7 @@ return {
     },
     {
       "<leader>gf",
-      "<cmd>DiffviewFileHistory %<cr>",
+      "<cmd>DiffviewFileHistory --no-merges --follow %<cr>",
       desc = "File git history",
     },
     {
