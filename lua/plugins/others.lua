@@ -1,5 +1,4 @@
 return {
-  { "towolf/vim-helm", ft = "helm" },
   {
     "nvim-neo-tree/neo-tree.nvim",
     keys = {

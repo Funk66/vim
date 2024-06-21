@@ -24,7 +24,6 @@ return {
         "rust",
         "tsx",
         "typescript",
-        "svelte",
         "vim",
         "yaml",
       })
