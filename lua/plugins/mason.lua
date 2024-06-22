@@ -28,6 +28,7 @@ return {
       "sqlfmt",
       "sqlls",
       "stylua",
+      "svelte-language-server",
       "tailwindcss-language-server",
       "taplo",
       "typescript-language-server",
