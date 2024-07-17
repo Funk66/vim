@@ -14,7 +14,6 @@ return {
       "hadolint",
       "html-lsp",
       "intelephense",
-      "jedi-language-server",
       "json-lsp",
       "lemminx",
       "lua-language-server",
