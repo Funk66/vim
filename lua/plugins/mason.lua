@@ -18,7 +18,6 @@ return {
       "lemminx",
       "lua-language-server",
       "markdownlint",
-      "mypy",
       "prettier",
       "pyright",
       "ruff-lsp",
