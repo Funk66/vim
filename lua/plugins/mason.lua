@@ -24,8 +24,6 @@ return {
       "rust-analyzer",
       "shellcheck",
       "shfmt",
-      "sqlfmt",
-      "sqlls",
       "stylua",
       "svelte-language-server",
       "tailwindcss-language-server",
