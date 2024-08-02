@@ -20,7 +20,7 @@ return {
       desc = "Toggle diff view",
     },
     {
-      "<leader>gf",
+      "<leader>gh",
       "<cmd>DiffviewFileHistory --no-merges --follow %<cr>",
       desc = "File git history",
     },
