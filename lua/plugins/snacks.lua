@@ -4,6 +4,12 @@ return {
   lazy = false,
   opts = {
     bigfile = { enabled = true },
+    gitbrowse = {
+      config = function(opts, _)
+        table.insert(opts.remote_patterns, { "kialo.github.com", "github.com" })
+      end,
+    },
+    input = { enabled = true },
     notifier = { enabled = true },
     quickfile = { enabled = true },
     scratch = {
