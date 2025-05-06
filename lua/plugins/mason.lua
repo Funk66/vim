@@ -20,7 +20,7 @@ return {
       "markdownlint",
       "prettier",
       "pyright",
-      "ruff-lsp",
+      "ruff",
       "rust-analyzer",
       "shellcheck",
       "shfmt",
