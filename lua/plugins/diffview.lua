@@ -26,7 +26,7 @@ return {
     },
     {
       "<leader>gm",
-      "<cmd>DiffviewOpen master...HEAD<cr>",
+      "<cmd>DiffviewOpen origin/master...HEAD --imply-local<cr>",
       desc = "Master diff",
     },
   },
