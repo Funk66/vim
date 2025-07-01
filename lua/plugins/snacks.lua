@@ -21,5 +21,18 @@ return {
     },
     statuscolumn = { enabled = true },
     words = { enabled = true },
+    picker = {
+      sources = {
+        files = {
+          include = { ".github" },
+        },
+        grep = {
+          include = { ".github" },
+        },
+        explorer = {
+          include = { ".github" },
+        },
+      },
+    },
   },
 }
