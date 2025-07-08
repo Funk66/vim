@@ -2,6 +2,24 @@ return {
   "folke/snacks.nvim",
   priority = 1000,
   lazy = false,
+  keys = {
+    {
+      "<leader>k",
+      function()
+        local explorer_pickers = Snacks.picker.get({ source = "explorer" })
+        for _, v in pairs(explorer_pickers) do
+          if v:is_focused() then
+            v:close()
+          else
+            v:focus()
+          end
+        end
+        if #explorer_pickers == 0 then
+          Snacks.picker.explorer()
+        end
+      end,
+    },
+  },
   opts = {
     bigfile = { enabled = true },
     gitbrowse = {
