@@ -12,6 +12,9 @@ return {
                   "!base/*/kustomization.y*ml",
                   "manifests/*/*/*.y*ml",
                 },
+                ["https://raw.githubusercontent.com/ast-grep/ast-grep/main/schemas/rule.json"] = {
+                  "ast-grep/**/*.y*ml",
+                },
               },
             },
           },
