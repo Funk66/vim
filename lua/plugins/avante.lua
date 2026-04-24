@@ -2,10 +2,33 @@ return {
   {
     "yetone/avante.nvim",
     opts = {
-      provider = "copilot",
+      provider = "claude-code",
       providers = {
-        copilot = {
-          model = "gpt-5.2",
+        ["llama"] = {
+          __inherited_from = "openai",
+          endpoint = "http://127.0.0.1:8080/v1",
+          model = "qwen3",
+          api_key_name = "LLAMA_API_KEY",
+          timeout = 120000,
+          extra_request_body = {
+            temperature = 0.6,
+            top_p = 0.95,
+            max_tokens = 4096,
+          },
+        },
+      },
+      selector = {
+        provider = "snacks",
+      },
+      input = {
+        provider = "snacks",
+      },
+      windows = {
+        spinner = {
+          thinking = { "⣾", "⣽", "⣻", "⢿", "⡿", "⣟", "⣯", "⣷" },
+        },
+        input = {
+          height = 10,
         },
       },
       system_prompt = function()
@@ -21,17 +44,13 @@ return {
         provider = "tavily",
       },
       acp_providers = {
-        ["gemini-cli"] = {
-          command = "gemini",
-          args = { "--experimental-acp" },
+        ["claude-code"] = {
+          command = "npx",
+          args = { "-y", "-g", "@zed-industries/claude-code-acp" },
           env = {
             NODE_NO_WARNINGS = "1",
-            GEMINI_API_KEY = os.getenv("GEMINI_API_KEY"),
+            ACP_PATH_TO_CLAUDE_CODE_EXECUTABLE = vim.fn.exepath("claude"),
           },
-        },
-        ["goose"] = {
-          command = "goose",
-          args = { "acp", "--with-builtin", "code_execution,developer" },
         },
       },
     },
