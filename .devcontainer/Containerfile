@@ -1,0 +1,32 @@
+# hadolint global ignore=DL3008
+FROM ubuntu:26.04
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+  bash \
+  build-essential \
+  ca-certificates \
+  curl \
+  fd-find \
+  git \
+  lazygit \
+  make \
+  neovim \
+  npm \
+  openssh-client \
+  python3 \
+  ripgrep \
+  unzip \
+  xz-utils \
+  && rm -rf /var/lib/apt/lists/* \
+  && ln -s "$(command -v fdfind)" /usr/local/bin/fd \
+  && ssh-keyscan -t ed25519,rsa,ecdsa github.com >> /etc/ssh/ssh_known_hosts \
+  && git config --system user.useConfigOnly true \
+  && git config --system core.editor nvim
+
+ENV NVIM_DEVCONTAINER=1 LANG=C.UTF-8 EDITOR=nvim VISUAL=nvim
+# hadolint ignore=DL3066
+USER ubuntu
+RUN mkdir -p ~/.local/share/nvim ~/.local/state/nvim
+COPY --chown=ubuntu:ubuntu nvim /home/ubuntu/.config/nvim
+WORKDIR /workspaces/nvim
+CMD ["sleep", "infinity"]

@@ -1,0 +1,21 @@
+{
+  "name": "neovim",
+  "build": {
+    "dockerfile": "Containerfile",
+    "context": "."
+  },
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/nvim,type=bind",
+  "workspaceFolder": "/workspaces/nvim",
+  "containerUser": "ubuntu",
+  "remoteUser": "ubuntu",
+  "updateRemoteUserUID": false,
+  "init": true,
+  "mounts": [
+    "source=/run/host-services/ssh-auth.sock,target=/run/host-ssh-agent.sock,type=bind",
+    "source=nvim-data-${devcontainerId},target=/home/ubuntu/.local/share/nvim,type=volume",
+    "source=nvim-state-${devcontainerId},target=/home/ubuntu/.local/state/nvim,type=volume"
+  ],
+  "containerEnv": {
+    "SSH_AUTH_SOCK": "/run/host-ssh-agent.sock"
+  }
+}
