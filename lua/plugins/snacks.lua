@@ -73,13 +73,13 @@ return {
     picker = {
       sources = {
         files = {
-          include = { ".github" },
+          include = { ".github", ".devcontainer" },
         },
         grep = {
-          include = { ".github" },
+          include = { ".github", ".devcontainer" },
         },
         explorer = {
-          include = { ".github" },
+          include = { ".github", ".devcontainer" },
         },
       },
     },

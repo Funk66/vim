@@ -17,5 +17,6 @@
   ],
   "containerEnv": {
     "SSH_AUTH_SOCK": "/run/host-ssh-agent.sock"
-  }
+  },
+  "runArgs": ["--add-host=coder.guirao.net:host-gateway"]
 }
