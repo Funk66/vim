@@ -13,5 +13,6 @@
   "mounts": [
     "source=nvim-data-${devcontainerId},target=/home/ubuntu/.local/share/nvim,type=volume",
     "source=nvim-state-${devcontainerId},target=/home/ubuntu/.local/state/nvim,type=volume"
-  ]
+  ],
+  "runArgs": ["--add-host=coder.guirao.net:169.254.1.2"]
 }
