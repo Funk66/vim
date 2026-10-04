@@ -11,11 +11,7 @@
   "updateRemoteUserUID": false,
   "init": true,
   "mounts": [
-    "source=${localEnv:SSH_AUTH_SOCK},target=/run/host-ssh-agent.sock,type=bind",
     "source=nvim-data-${devcontainerId},target=/home/ubuntu/.local/share/nvim,type=volume",
     "source=nvim-state-${devcontainerId},target=/home/ubuntu/.local/state/nvim,type=volume"
-  ],
-  "containerEnv": {
-    "SSH_AUTH_SOCK": "/run/host-ssh-agent.sock"
-  }
+  ]
 }
