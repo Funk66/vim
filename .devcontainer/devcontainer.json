@@ -24,5 +24,9 @@
       "extensions": "sumneko.lua,redhat.vscode-yaml,ms-python.python,charliermarsh.ruff,esbenp.prettier-vscode,EditorConfig.EditorConfig,eamodio.gitlens,tamasfe.even-better-toml,ms-azuretools.vscode-docker"
     }
   },
+  "remoteEnv": {
+    "TAVILY_API_KEY": "${localEnv:TAVILY_API_KEY}",
+    "SOFA_API_TOKEN": "${localEnv:SOFA_API_TOKEN}"
+  },
   "runArgs": ["--add-host=coder.guirao.net:169.254.1.2"]
 }
