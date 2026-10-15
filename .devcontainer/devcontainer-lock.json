@@ -1,0 +1,30 @@
+{
+  "features": {
+    "ghcr.io/coder/devcontainer-features/code-server:1": {
+      "version": "1.1.0",
+      "resolved": "ghcr.io/coder/devcontainer-features/code-server@sha256:af05f05a17f22757c2493de275d47d30cea0e3580504bd7066b7a31f1244b165",
+      "integrity": "sha256:af05f05a17f22757c2493de275d47d30cea0e3580504bd7066b7a31f1244b165",
+      "dependsOn": [
+        "ghcr.io/devcontainers/features/common-utils:2"
+      ]
+    },
+    "ghcr.io/devcontainer-community/devcontainer-features/opencode.ai": {
+      "version": "1.0.7",
+      "resolved": "ghcr.io/devcontainer-community/devcontainer-features/opencode.ai@sha256:312520e651f8438c67d6823464fffaf42449e1e05e7020ef721748a4a95fa1fb",
+      "integrity": "sha256:312520e651f8438c67d6823464fffaf42449e1e05e7020ef721748a4a95fa1fb"
+    },
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "version": "2.7.1",
+      "resolved": "ghcr.io/devcontainers/features/common-utils@sha256:e76a6a8a35d1ad824daad1540725e0ec9f8ed2dc00d2850e990a9830013c7d08",
+      "integrity": "sha256:e76a6a8a35d1ad824daad1540725e0ec9f8ed2dc00d2850e990a9830013c7d08"
+    },
+    "ghcr.io/funk66/devcontainer-features/opencode:0.1.1": {
+      "version": "0.1.1",
+      "resolved": "ghcr.io/funk66/devcontainer-features/opencode@sha256:72c7078cb8809cdaca80e814c699ffaf95d8d2230eda94fc679f03d0e956208f",
+      "integrity": "sha256:72c7078cb8809cdaca80e814c699ffaf95d8d2230eda94fc679f03d0e956208f",
+      "dependsOn": [
+        "ghcr.io/devcontainer-community/devcontainer-features/opencode.ai"
+      ]
+    }
+  }
+}

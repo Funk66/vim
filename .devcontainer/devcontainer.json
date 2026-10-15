@@ -1,29 +1,16 @@
 {
   "name": "neovim",
-  "build": {
-    "dockerfile": "Containerfile",
-    "context": "."
-  },
-  "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/nvim,type=bind",
-  "workspaceFolder": "/workspaces/nvim",
+  "image": "ghcr.io/funk66/devcontainers:latest",
+  "workspaceFolder": "/home/ubuntu/.config/nvim",
   "containerUser": "ubuntu",
   "remoteUser": "ubuntu",
   "updateRemoteUserUID": false,
   "init": true,
   "mounts": [
     "source=nvim-data-${devcontainerId},target=/home/ubuntu/.local/share/nvim,type=volume",
-    "source=nvim-state-${devcontainerId},target=/home/ubuntu/.local/state/nvim,type=volume"
+    "source=nvim-state-${devcontainerId},target=/home/ubuntu/.local/state/nvim,type=volume",
+    "source=opencode-state-${devcontainerId},target=/home/ubuntu/.local/state/opencode,type=volume"
   ],
-  "features": {
-    "ghcr.io/funk66/devcontainer-features/opencode:0.1.1": {},
-    "ghcr.io/coder/devcontainer-features/code-server:1": {
-      "port": 9090,
-      "host": "0.0.0.0",
-      "auth": "none",
-      "workspace": "/workspaces/nvim",
-      "extensions": "sumneko.lua,redhat.vscode-yaml,ms-python.python,charliermarsh.ruff,esbenp.prettier-vscode,EditorConfig.EditorConfig,eamodio.gitlens,tamasfe.even-better-toml,ms-azuretools.vscode-docker"
-    }
-  },
   "remoteEnv": {
     "TAVILY_API_KEY": "${localEnv:TAVILY_API_KEY}",
     "SOFA_API_TOKEN": "${localEnv:SOFA_API_TOKEN}"
