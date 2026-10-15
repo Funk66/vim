@@ -27,7 +27,7 @@ require("lazy").setup({
     lazy = false,
     version = false,
   },
-  -- install = { colorscheme = { "wildcharm" } },
+  install = { colorscheme = { "tokyonight" } },
   checker = { enabled = false },
   performance = {
     rtp = {

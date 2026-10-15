@@ -26,8 +26,8 @@ return {
     },
     {
       "<leader>gm",
-      "<cmd>DiffviewOpen origin/master...HEAD --imply-local<cr>",
-      desc = "Master diff",
+      "<cmd>DiffviewOpen origin/HEAD...HEAD --imply-local<cr>",
+      desc = "Default branch diff",
     },
   },
   config = true,
