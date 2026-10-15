@@ -52,11 +52,7 @@ return {
   opts = {
     bigfile = { enabled = true },
     gh = { enabled = true },
-    gitbrowse = {
-      config = function(opts, _)
-        table.insert(opts.remote_patterns, { "kialo.github.com", "github.com" })
-      end,
-    },
+    gitbrowse = { enable = true },
     image = { enabled = true },
     input = { enabled = true },
     notifier = { enabled = true },
@@ -73,13 +69,13 @@ return {
     picker = {
       sources = {
         files = {
-          include = { ".github" },
+          include = { ".github", ".devcontainer" },
         },
         grep = {
-          include = { ".github" },
+          include = { ".github", ".devcontainer" },
         },
         explorer = {
-          include = { ".github" },
+          include = { ".github", ".devcontainer" },
         },
       },
     },
