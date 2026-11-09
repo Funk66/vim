@@ -10,6 +10,7 @@ return {
         "dockerfile",
         "gitignore",
         "go",
+        "gotmpl",
         "html",
         "http",
         "ini",
