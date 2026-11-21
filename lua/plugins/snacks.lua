@@ -48,6 +48,20 @@ return {
       end,
       desc = "GitHub Pull Requests (all)",
     },
+    {
+      "<leader>sd",
+      function()
+        Snacks.picker.grep({ cwd = vim.fn.expand("%:p:h") })
+      end,
+      desc = "Grep (buffer dir)",
+    },
+    {
+      "<leader>fd",
+      function()
+        Snacks.picker.files({ cwd = vim.fn.expand("%:p:h") })
+      end,
+      desc = "Files (buffer dir)",
+    },
   },
   opts = {
     bigfile = { enabled = true },
