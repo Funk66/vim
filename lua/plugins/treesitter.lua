@@ -6,6 +6,7 @@ return {
         "bash",
         "caddy",
         "css",
+        "cue",
         "diff",
         "dockerfile",
         "gitignore",

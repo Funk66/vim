@@ -10,6 +10,10 @@ vim.filetype.add({
 vim.treesitter.query.add_directive("set-lang-from-tmpl-name!", function(_, _, bufnr, _, metadata)
   local name = vim.api.nvim_buf_get_name(bufnr):gsub("%.tmpl$", "")
   local ft = vim.filetype.match({ filename = name })
+  if ft == "helm" or ft == "gotmpl" then
+    metadata["injection.language"] = "yaml"
+    return
+  end
   metadata["injection.language"] = ft and vim.treesitter.language.get_lang(ft) or "comment"
 end, { force = true })
 
